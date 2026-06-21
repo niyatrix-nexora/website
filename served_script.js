@@ -12,7 +12,8 @@ function debounce(func, wait) {
 
 const NN_REDUCE_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const NN_COARSE_POINTER = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-const NN_LOW_POWER = NN_REDUCE_MOTION || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+const NN_LOW_POWER = NN_REDUCE_MOTION || NN_COARSE_POINTER || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+const NN_DISABLE_ANIMATION = NN_REDUCE_MOTION || (navigator.deviceMemory && navigator.deviceMemory <= 2);
 const NN_DPR_CAP = NN_LOW_POWER ? 1 : 1.4;
 const NN_HERO_TUBE_SEGMENTS = NN_LOW_POWER ? 220 : 420;
 const NN_HERO_RADIAL_SEGMENTS = NN_LOW_POWER ? 8 : 12;
@@ -155,8 +156,10 @@ function ensureCursorElement(id) {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x010610);
     scene.fog = new THREE.FogExp2(0x010610, 0.015);
-    const cam = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, .1, 600);
-    cam.position.set(0, 0, 8);
+    const aspect = innerWidth / innerHeight;
+    const initialZ = aspect < 1.2 ? Math.min(14, 8 * (1.2 / aspect)) : 8;
+    const cam = new THREE.PerspectiveCamera(55, aspect, .1, 600);
+    cam.position.set(0, 0, initialZ);
     cam.lookAt(0, 0, 0);
 
     scene.add(new THREE.AmbientLight(0x001833, .6));
@@ -334,7 +337,9 @@ void main(){
       driftGeo.attributes.position.needsUpdate = true;
       cam.position.x += (mxN * .5 - cam.position.x) * .02;
       cam.position.y += (myN * .3 - cam.position.y) * .02;
-      cam.position.z = 8;
+      const aspect = innerWidth / innerHeight;
+      const targetZ = aspect < 1.2 ? Math.min(14, 8 * (1.2 / aspect)) : 8;
+      cam.position.z += (targetZ - cam.position.z) * 0.1;
       cam.lookAt(0, 0, 0);
       emeraldKey.intensity = 3.5 + Math.sin(heroTime * .9) * .8;
       cyanFill.position.x = -9 + Math.sin(heroTime * .27) * 2;
@@ -343,7 +348,7 @@ void main(){
     }
 
     function setBgActive(active) {
-      bgActive = active && !document.hidden && !NN_LOW_POWER;
+      bgActive = active && !document.hidden && !NN_DISABLE_ANIMATION;
       if (bgActive && !bgFrame) animBg();
       if (!bgActive && bgFrame) {
         cancelAnimationFrame(bgFrame);
@@ -367,7 +372,7 @@ void main(){
       setBgActive(!document.hidden && (!hero || hero.getBoundingClientRect().bottom > 0));
     });
 
-    if (NN_LOW_POWER) ren.render(scene, cam);
+    if (NN_DISABLE_ANIMATION) ren.render(scene, cam);
 
     window.addEventListener('resize', debounce(() => {
       cam.aspect = innerWidth / innerHeight; cam.updateProjectionMatrix();
@@ -697,7 +702,7 @@ void main(){
       }
 
       function setStackActive(active) {
-        stackActive = active && !document.hidden && !NN_LOW_POWER;
+        stackActive = active && !document.hidden && !NN_DISABLE_ANIMATION;
         if (stackActive && !stackFrame) renderStack();
         if (!stackActive && stackFrame) {
           cancelAnimationFrame(stackFrame);
@@ -712,7 +717,7 @@ void main(){
       document.addEventListener('visibilitychange', () => {
         setStackActive(!document.hidden && stackSceneEl.getBoundingClientRect().top < innerHeight);
       });
-      if (NN_LOW_POWER) sRen.render(sScene, sCam);
+      if (NN_DISABLE_ANIMATION) sRen.render(sScene, sCam);
     }
 
 // 3D stacked layers for .stack-wrap

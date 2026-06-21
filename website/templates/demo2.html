@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NIYATRIX NEXORA — Intelligent Software Company</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="NIYATRIX NEXORA builds production-grade AI products, cloud systems, and digital experiences for companies that refuse to settle for average.">
+  <meta property="og:title" content="NIYATRIX NEXORA — Intelligent Software Company">
+  <meta property="og:description" content="NIYATRIX NEXORA builds production-grade AI products, cloud systems, and digital experiences for companies that refuse to settle for average.">
+<meta property="og:url" content="https://niyatrixnexora.com">
+   <meta property="og:type" content="website">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="NIYATRIX NEXORA — Intelligent Software Company">
+   <meta name="twitter:description" content="NIYATRIX NEXORA builds production-grade AI products, cloud systems, and digital experiences for companies that refuse to settle for average.">
+  <link rel="canonical" href="https://niyatrixnexora.com/">
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  
+<!-- Font Imports -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital,wght@0,400;1,400&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+   <link rel="preload" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=clash-display@600,700&display=swap"></noscript>
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}?v=20260616-1" id="tailwind-stylesheet" />
+<link rel="stylesheet" href="{% static 'css/styles.css' %}?v=20260522-1" id="main-stylesheet" />
+  <script>
+    if (window.location.protocol === 'file:' || window.location.pathname.indexOf('/website/templates/') !== -1) {
+      document.getElementById('main-stylesheet').setAttribute('href', '../static/css/styles.css?v=20260522-1');
+      document.getElementById('tailwind-stylesheet').setAttribute('href', '../static/css/tailwind.css?v=20260616-1');
+    }
+  </script>
+</head>
+
+<body class="bg-bg text-white font-body overflow-x-hidden min-h-screen ">
+
+  <canvas id="bg"></canvas>
+  <canvas id="aura-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav class="w-[92%] max-w-[1320px] z-[1000] px-5 py-3 md:px-8 md:py-3.5 flex justify-between items-center bg-[#03050c]/60 backdrop-blur-xl border border-white/10 rounded-xl">
+
+    <!-- Logo -->
+    <a href="{% url 'home' %}" class="logo font-logo font-bold text-base md:text-lg tracking-tight text-white flex items-center gap-2 shrink-0 relative z-[1001] drop-shadow-[0_0_20px_rgba(91,110,245,0.3)]">
+      NIYATRIX <span class="text-accent2 font-bold">NEXORA</span>
+      <span class="logo-dot w-2 h-2 rounded-full bg-accent shadow-[0_0_20px_#5b6ef5] animate-[pulseDot_2.4s_ease_infinite]"></span>
+    </a>
+
+    <!-- Desktop links — hidden below md -->
+    <ul class="nav-desktop hidden md:flex items-center gap-5 lg:gap-8 list-none">
+      <li><a href="{% url 'home' %}#services"     class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Services</a></li>
+      <li><a href="{% url 'home' %}#case-studies" class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Case Studies</a></li>
+      <li><a href="{% url 'home' %}#about"        class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">About</a></li>
+      <li><a href="{% url 'blog' %}"              class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Blog</a></li>
+      <li><a href="{% url 'careers' %}"           class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Careers</a></li>
+    </ul>
+
+    <!-- Desktop CTA -->
+    <a href="{% url 'home' %}#contact" class="nav-cta hidden md:inline-flex items-center shrink-0 bg-white text-black px-5 py-2 rounded font-button text-[10px] lg:text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(91,110,245,0.35)] whitespace-nowrap">Work with Us</a>
+
+    <!-- Mobile hamburger -->
+    <button class="menu-btn flex md:hidden flex-col gap-[5px] cursor-pointer p-2 z-[1002] shrink-0 bg-transparent border-0" onclick="toggleMenu()" aria-label="Toggle menu">
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300"></span>
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+    </button>
+
+    <!-- Mobile dropdown -->
+    <ul class="nav-mobile md:hidden absolute top-full left-0 right-0 mt-3 flex-col items-center gap-5 list-none bg-[#03050c]/97 backdrop-blur-2xl border border-white/10 rounded-xl px-6 py-8 z-[999]">
+      <li><a href="{% url 'home' %}#services"     class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Services</a></li>
+      <li><a href="{% url 'home' %}#case-studies" class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Case Studies</a></li>
+      <li><a href="{% url 'home' %}#about"        class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">About</a></li>
+      <li><a href="{% url 'blog' %}"              class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Blog</a></li>
+      <li><a href="{% url 'careers' %}"           class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Careers</a></li>
+      <li class="w-full text-center pt-2 border-t border-white/10">
+        <a href="{% url 'home' %}#contact" class="inline-block bg-white text-black px-8 py-3 rounded font-button text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 mt-2" onclick="closeMenu()">Work with Us</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-4 py-32 md:py-40 relative overflow-x-hidden">
+    <div class="max-w-[1320px] w-full mx-auto flex flex-col items-center">
+    <div class="hero-eyebrow inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest text-muted uppercase mb-10 font-ui backdrop-blur-md">
+      <span class="hero-eyebrow-dot w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#5b6ef5]"></span>
+      AI-Native Software Company · Est. 2026
+    </div>
+
+    <h1 class="font-hero text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight mb-8 text-white filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+      We engineer<br />
+      <em class="not-italic font-normal text-white/60 tracking-tight">software that</em><br />
+      <span class="h1-line2 block bg-[linear-gradient(90deg,#fff,#9b87f5,#c084fc,#fff)] bg-[length:200%_auto] bg-clip-text text-transparent animate-[gradientFlow_5s_linear_infinite] tracking-tighter pb-2">thinks for itself.</span>
+    </h1>
+
+    <p class="hero-desc text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-12 sm:mb-16 font-normal tracking-tight">
+      NIYATRIX NEXORA builds production-grade AI products, cloud systems, and digital experiences for companies that refuse to settle for average.
+    </p>
+
+    <div class="hero-actions flex flex-wrap gap-4 sm:gap-6 justify-center">
+      <button class="bg-white text-black border-none px-10 py-4 rounded font-button text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 hover:-translate-y-1 hover:scale-102 hover:shadow-[0_15px_40px_rgba(91,110,245,0.5),0_0_0_4px_rgba(91,110,245,0.1)] " onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Work with us
+      </button>
+      <button class="bg-white/5 border border-white/20 text-white px-10 py-4 rounded font-button text-xs font-bold tracking-wider hover:bg-white/10 hover:border-white uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg backdrop-blur-md " onclick="document.getElementById('case-studies').scrollIntoView({behavior:'smooth'})">
+        See work
+      </button>
+    </div>
+
+    <!-- Metrics -->
+    <div class="hero-metrics flex flex-col sm:flex-row gap-8 sm:gap-12 md:gap-16 mt-24 pt-16 border-t border-white/10 w-full justify-around items-center">
+      <div class="metric">
+        <span class="block font-logo text-4xl sm:text-5xl font-bold tracking-tight text-white leading-none">50+</span>
+        <p class="text-[10px] md:text-xs text-muted2 mt-3 font-bold tracking-widest uppercase font-ui">Projects shipped</p>
+      </div>
+      <div class="metric">
+        <span class="block font-logo text-4xl sm:text-5xl font-bold tracking-tight text-white leading-none">30+</span>
+        <p class="text-[10px] md:text-xs text-muted2 mt-3 font-bold tracking-widest uppercase font-ui">Clients worldwide</p>
+      </div>
+      <div class="metric">
+        <span class="block font-logo text-4xl sm:text-5xl font-bold tracking-tight text-white leading-none">5.0</span>
+        <p class="text-[10px] md:text-xs text-muted2 mt-3 font-bold tracking-widest uppercase font-ui">Average rating</p>
+      </div>
+      <div class="metric">
+        <span class="block font-logo text-4xl sm:text-5xl font-bold tracking-tight text-white leading-none">99.9%</span>
+        <p class="text-[10px] md:text-xs text-muted2 mt-3 font-bold tracking-widest uppercase font-ui">Uptime SLA</p>
+      </div>
+    </div>
+
+    </div><!-- end max-w wrapper -->
+
+    <!-- Scroll Mouse Indicator -->
+    <div class="scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-60 hover:opacity-100 transition-opacity duration-300">
+      <div class="scroll-mouse w-[22px] h-[38px] border-2 border-muted rounded-xl relative">
+        <div class="scroll-wheel w-[2px] h-[6px] bg-white absolute top-[6px] left-1/2 -translate-x-1/2 rounded-full animate-[mouseScroll_2s_ease_infinite]"></div>
+      </div>
+      <span class="text-[10px] font-bold tracking-widest text-muted uppercase">Scroll</span>
+    </div>
+  </section>
+
+ <!-- SERVICES -->
+  <section id="services" class="px-[5%] py-24 md:py-32">
+    <div class="max-w-[1320px] mx-auto"></div>
+    <div class="section-header reveal mb-16 text-left">
+      <div class="eyebrow">What We Build</div>
+      <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+      <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Our capabilities</h2>
+      <p class="section-sub text-muted text-base sm:text-lg max-w-xl leading-relaxed mt-6 font-normal">End-to-end digital solutions built with precision — from raw idea to deployed product.</p>
+    </div>
+    
+    <div class="svc-grid reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/10 border border-white/10 rounded-xl overflow-hidden">
+      <!-- 01 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">01</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/><circle cx="9" cy="14" r="1.5"/><circle cx="15" cy="14" r="1.5"/><path d="M9 18h6"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">AI Development</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Custom ML models, LLM integrations, RAG pipelines, and intelligent automation tailored to your workflows.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 02 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">02</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">Cloud Architecture</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Scalable, resilient infrastructure on AWS, GCP & Azure with zero-downtime deployments and cost optimisation.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 03 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">03</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">Web Applications</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">High-performance React & Next.js apps with cinematic interfaces that actually convert.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 04 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">04</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">Mobile Apps</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Cross-platform experiences with React Native & Flutter. Native performance, shared codebase.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 05 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">05</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">Cybersecurity</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Penetration testing, secure code reviews, zero-trust architecture, and compliance readiness.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 06 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">06</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">DevOps & CI/CD</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Docker orchestration, Kubernetes, GitOps workflows, and observability stacks that scale.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 07 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">07</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">UI/UX Design</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Figma-first design systems, motion design, and pixel-perfect implementation that ships.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+
+      <!-- 08 -->
+      <div class="svc-cell bg-surface px-8 py-12 md:px-10 md:py-16 transition-all duration-500 hover:bg-white/[0.04] hover:-translate-y-1.5 border border-transparent hover:border-white/20 hover:z-[3] flex flex-col justify-between h-full group">
+        <div>
+          <div class="svc-num font-ui text-[10px] md:text-xs font-extrabold tracking-widest text-accent mb-8">08</div>
+          <div class="w-10 h-10 flex items-center justify-center text-lyzr-teal mb-6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3 class="text-white text-lg font-bold tracking-wide mb-4 uppercase">Data & Analytics</h3>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Real-time dashboards, ETL pipelines, and business intelligence tooling on modern data stacks.</p>
+        </div>
+        <span class="svc-arrow inline-block mt-10 text-[10px] md:text-xs font-bold tracking-widest text-lyzr-teal hover:text-white uppercase transition-all duration-300 opacity-80 group-hover:opacity-100 group-hover:translate-x-1.5">Learn more →</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHY NIYATRIX NEXORA -->
+  <section id="why-us" class="px-[5%] py-24 md:py-32 bg-white/[0.01]">
+    <div class="reveal grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24 items-start">
+
+      <!-- Left: Headline column -->
+      <div class="flex flex-col justify-start">
+        <div class="eyebrow">Why Niyatrix Nexora</div>
+        <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+        <h2 class="font-hero text-4xl sm:text-5xl lg:text-[3.25rem] font-semibold leading-[1.05] tracking-tight text-white mb-8">Built like a startup.<br />Trusted like a partner.</h2>
+        <p class="text-muted text-base sm:text-lg leading-relaxed font-normal max-w-xs">We're the team you'd hire if you could clone your best engineers — and ship faster than you thought possible.</p>
+      </div>
+
+      <!-- Right: 2×3 feature card grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+        <!-- AI-native by default -->
+        <div class="benefit-card bg-surface border border-white/10 rounded-xl p-7 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-9 h-9 flex items-center justify-center text-lyzr-teal mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+          </div>
+          <h3 class="text-white text-[0.9rem] font-bold tracking-tight mb-2">AI-native by default</h3>
+          <p class="text-muted text-sm leading-relaxed font-normal">Every engineer here ships LLM-backed systems weekly. It's the floor, not the ceiling.</p>
+        </div>
+
+        <!-- Fast delivery, real software -->
+        <div class="benefit-card bg-surface border border-white/10 rounded-xl p-7 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-9 h-9 flex items-center justify-center text-lyzr-teal mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3 class="text-white text-[0.9rem] font-bold tracking-tight mb-2">Fast delivery, real software</h3>
+          <p class="text-muted text-sm leading-relaxed font-normal">Two-week visible milestones. No 90-day discovery decks.</p>
+        </div>
+
+        <!-- Production-grade systems -->
+        <div class="benefit-card bg-surface border border-white/10 rounded-xl p-7 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-9 h-9 flex items-center justify-center text-lyzr-teal mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="text-white text-[0.9rem] font-bold tracking-tight mb-2">Production-grade systems</h3>
+          <p class="text-muted text-sm leading-relaxed font-normal">Observability, rollback, SLOs and load tests are part of v1.</p>
+        </div>
+
+        <!-- Startup velocity -->
+        <div class="benefit-card bg-surface border border-white/10 rounded-xl p-7 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-9 h-9 flex items-center justify-center text-lyzr-teal mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <h3 class="text-white text-[0.9rem] font-bold tracking-tight mb-2">Startup velocity</h3>
+          <p class="text-muted text-sm leading-relaxed font-normal">Senior squads of 3–5. No staffing pyramids, no offshore handoffs.</p>
+        </div>
+
+        <!-- Enterprise reliability -->
+        <div class="benefit-card bg-surface border border-white/10 rounded-xl p-7 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-9 h-9 flex items-center justify-center text-lyzr-teal mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
+          </div>
+          <h3 class="text-white text-[0.9rem] font-bold tracking-tight mb-2">Enterprise reliability</h3>
+          <p class="text-muted text-sm leading-relaxed font-normal">We've shipped into regulated healthcare, fintech, and supply chain stacks.</p>
+        </div>
+
+        <!-- Dedicated squads -->
+        <div class="benefit-card bg-surface border border-white/10 rounded-xl p-7 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+          <div class="w-9 h-9 flex items-center justify-center text-lyzr-teal mb-5">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-white text-[0.9rem] font-bold tracking-tight mb-2">Dedicated squads</h3>
+          <p class="text-muted text-sm leading-relaxed font-normal">One team, one Slack channel, fully embedded with yours.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <section id="marquee" class="py-16 bg-white/[0.01] border-y border-white/10 overflow-hidden">
+    <div class="marquee-track flex gap-20 animate-marquee-left whitespace-nowrap">
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">React</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Next.js</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">TypeScript</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Python</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Django</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Node.js</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">TailwindCSS</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Three.js</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">PostgreSQL</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Redis</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">GraphQL</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Docker</span>
+      <!-- Repeated for seamless loop -->
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">React</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Next.js</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">TypeScript</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Python</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Django</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Node.js</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">TailwindCSS</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Three.js</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">PostgreSQL</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Redis</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">GraphQL</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Docker</span>
+    </div>
+    <div class="marquee-track flex gap-20 animate-marquee-right mt-6 whitespace-nowrap">
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Kubernetes</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">AWS</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">GCP</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Azure</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">TensorFlow</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">PyTorch</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">LangChain</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Pinecone</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Supabase</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Prisma</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Flutter</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">React Native</span>
+      <!-- Repeated for seamless loop -->
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Kubernetes</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">AWS</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">GCP</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Azure</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">TensorFlow</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">PyTorch</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">LangChain</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Pinecone</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Supabase</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Prisma</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">Flutter</span>
+      <span class="tech-tag text-xs font-bold tracking-widest text-muted hover:text-white uppercase font-ui">React Native</span>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="case-studies" class="px-[5%] py-24 md:py-32">
+    <div class="max-w-[1320px] mx-auto">
+    <div class="section-header reveal mb-16 text-left">
+      <div class="eyebrow">Proven Success</div>
+      <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+      <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Featured Case Studies</h2>
+      <p class="section-sub text-muted text-base sm:text-lg max-w-xl leading-relaxed mt-6 font-normal">Real metrics. Real systems. Explore how we help companies unlock exponential growth with AI and cloud engineering.</p>
+    </div>
+
+    <div class="reveal grid grid-cols-1 lg:grid-cols-3 gap-10">
+      <!-- FinVerse -->
+      <div class="bg-surface border border-white/10 rounded-2xl overflow-hidden hover:border-accent transition-all duration-400 flex flex-col justify-between h-full group">
+        <div class="p-8 sm:p-10">
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-[10px] font-bold tracking-widest text-accent uppercase">Fintech / SaaS</span>
+            <span class="text-xs text-muted2 font-medium">4 Months</span>
+          </div>
+          <h3 class="font-hero text-2xl font-bold text-white mb-4 leading-tight">FinVerse: AI-driven Financial Analysis Platform</h3>
+          <div class="mb-6 pt-4 border-t border-white/5">
+            <span class="block font-logo text-5xl font-extrabold text-accent leading-none">8x</span>
+            <span class="text-[10px] font-bold tracking-widest text-muted2 uppercase mt-2 block">Processing Speedup</span>
+          </div>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Autonomous report parser and RAG pipelines that cut data extraction time from 48 hours to 8 minutes with 99.8% accuracy.</p>
+        </div>
+        <div class="px-8 pb-8 sm:px-10 sm:pb-10 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-white font-semibold">Python · Django · LangChain</span>
+          <button class="text-xs font-bold text-lyzr-teal hover:text-white uppercase tracking-wider transition-colors duration-300 " onclick="openCaseStudy('finverse')">Read Study →</button>
+        </div>
+      </div>
+
+      <!-- LumiAI -->
+      <div class="bg-surface border border-white/10 rounded-2xl overflow-hidden hover:border-accent transition-all duration-400 flex flex-col justify-between h-full group">
+        <div class="p-8 sm:p-10">
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-[10px] font-bold tracking-widest text-accent uppercase">Generative Media / AI</span>
+            <span class="text-xs text-muted2 font-medium">2 Months</span>
+          </div>
+          <h3 class="font-hero text-2xl font-bold text-white mb-4 leading-tight">LumiAI: Immersive Digital Brand Hub</h3>
+          <div class="mb-6 pt-4 border-t border-white/5">
+            <span class="block font-logo text-5xl font-extrabold text-accent leading-none">340%</span>
+            <span class="text-[10px] font-bold tracking-widest text-muted2 uppercase mt-2 block">Conversion Increase</span>
+          </div>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">A high-performance cinematic brand landing interface featuring custom WebGL shaders and smooth physics animations.</p>
+        </div>
+        <div class="px-8 pb-8 sm:px-10 sm:pb-10 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-white font-semibold">Next.js · Three.js · GSAP</span>
+          <button class="text-xs font-bold text-lyzr-teal hover:text-white uppercase tracking-wider transition-colors duration-300 " onclick="openCaseStudy('lumiai')">Read Study →</button>
+        </div>
+      </div>
+
+      <!-- NexaBuild -->
+      <div class="bg-surface border border-white/10 rounded-2xl overflow-hidden hover:border-accent transition-all duration-400 flex flex-col justify-between h-full group">
+        <div class="p-8 sm:p-10">
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-[10px] font-bold tracking-widest text-accent uppercase">Enterprise Tech</span>
+            <span class="text-xs text-muted2 font-medium">5 Months</span>
+          </div>
+          <h3 class="font-hero text-2xl font-bold text-white mb-4 leading-tight">NexaBuild: Zero-Downtime DevOps & Cloud Pipeline</h3>
+          <div class="mb-6 pt-4 border-t border-white/5">
+            <span class="block font-logo text-5xl font-extrabold text-accent leading-none">99.99%</span>
+            <span class="text-[10px] font-bold tracking-widest text-muted2 uppercase mt-2 block">Uptime Achieved</span>
+          </div>
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Containerized Kubernetes clusters and automated multi-zone failovers, resulting in a 42% decrease in cloud infrastructure costs.</p>
+        </div>
+        <div class="px-8 pb-8 sm:px-10 sm:pb-10 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-white font-semibold">AWS · Kubernetes · Terraform</span>
+          <button class="text-xs font-bold text-lyzr-teal hover:text-white uppercase tracking-wider transition-colors duration-300 " onclick="openCaseStudy('nexabuild')">Read Study →</button>
+        </div>
+      </div>
+    </div>
+    </div><!-- end max-w wrapper -->
+  </section>
+
+  <!-- STATS -->
+  <section id="stats" class="px-[5%] py-16">
+    <div class="max-w-[1320px] mx-auto"></div>
+    <div class="stat-row reveal grid grid-cols-2 lg:grid-cols-4 gap-[1px] bg-white/10 border border-white/10 rounded-xl overflow-hidden">
+      <!-- 01 -->
+      <div class="stat-box bg-surface py-16 px-8 text-center hover:bg-white/[0.03] transition-colors duration-300">
+        <div class="stat-val font-logo text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none bg-[linear-gradient(to_bottom,#fff,#a1a1aa)] bg-clip-text text-transparent mb-4 block" data-t="50">0</div>
+        <div class="stat-label text-xs sm:text-sm text-muted font-bold tracking-widest uppercase font-ui">Projects Completed</div>
+      </div>
+      <!-- 02 -->
+      <div class="stat-box bg-surface py-16 px-8 text-center hover:bg-white/[0.03] transition-colors duration-300">
+        <div class="stat-val font-logo text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none bg-[linear-gradient(to_bottom,#fff,#a1a1aa)] bg-clip-text text-transparent mb-4 block" data-t="30">0</div>
+        <div class="stat-label text-xs sm:text-sm text-muted font-bold tracking-widest uppercase font-ui">Active Clients</div>
+      </div>
+      <!-- 03 -->
+      <div class="stat-box bg-surface py-16 px-8 text-center hover:bg-white/[0.03] transition-colors duration-300">
+        <div class="stat-val font-logo text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none bg-[linear-gradient(to_bottom,#fff,#a1a1aa)] bg-clip-text text-transparent mb-4 block" data-t="12">0</div>
+        <div class="stat-label text-xs sm:text-sm text-muted font-bold tracking-widest uppercase font-ui">AI Models Shipped</div>
+      </div>
+      <!-- 04 -->
+      <div class="stat-box bg-surface py-16 px-8 text-center hover:bg-white/[0.03] transition-colors duration-300">
+        <div class="stat-val font-logo text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tighter leading-none bg-[linear-gradient(to_bottom,#fff,#a1a1aa)] bg-clip-text text-transparent mb-4 block" data-t="6">0</div>
+        <div class="stat-label text-xs sm:text-sm text-muted font-bold tracking-widest uppercase font-ui">Years in Business</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="px-[5%] py-24 md:py-32">
+    <div class="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+    <div class="reveal">
+      <div class="eyebrow">Who We Are</div>
+      <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+      <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Built different,<br />by design.</h2>
+      <p class="about-body text-muted leading-relaxed text-base sm:text-lg lg:text-xl mt-8 mb-12">
+        NIYATRIX NEXORA is a next-generation software company at the intersection of AI, design, and engineering. We build the full stack—from the underlying models and infrastructure to the agentic workflows that power your business.
+      </p>
+      
+      <!-- USP List -->
+      <div class="usp-list flex flex-col gap-10 mt-12">
+        <!-- 01 -->
+        <div class="usp flex gap-6 items-start">
+          <div class="usp-icon w-12 h-12 min-w-[48px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shadow-[0_0_15px_rgba(91,110,245,0.1)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18m6-18v18M3 9h18M3 15h18"/></svg>
+          </div>
+          <div>
+            <div class="usp-title font-bold text-white text-lg tracking-tight mb-1">AI-native by default</div>
+            <div class="usp-desc text-muted text-sm sm:text-base leading-relaxed max-w-lg font-normal">Every product we build bakes in intelligent automation from the ground up, not as an afterthought.</div>
+          </div>
+        </div>
+
+        <!-- 02 -->
+        <div class="usp flex gap-6 items-start">
+          <div class="usp-icon w-12 h-12 min-w-[48px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shadow-[0_0_15px_rgba(91,110,245,0.1)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div>
+            <div class="usp-title font-bold text-white text-lg tracking-tight mb-1">Design-obsessed</div>
+            <div class="usp-desc text-muted text-sm sm:text-base leading-relaxed max-w-lg font-normal">Pixel-perfect interfaces grounded in user research and motion principles that users actually love.</div>
+          </div>
+        </div>
+
+        <!-- 03 -->
+        <div class="usp flex gap-6 items-start">
+          <div class="usp-icon w-12 h-12 min-w-[48px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shadow-[0_0_15px_rgba(91,110,245,0.1)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <div class="usp-title font-bold text-white text-lg tracking-tight mb-1">Performance guaranteed</div>
+            <div class="usp-desc text-muted text-sm sm:text-base leading-relaxed max-w-lg font-normal">99.9% uptime SLA, sub-100ms response times, and infrastructure that scales with you.</div>
+          </div>
+        </div>
+
+        <!-- 04 -->
+        <div class="usp flex gap-6 items-start">
+          <div class="usp-icon w-12 h-12 min-w-[48px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shadow-[0_0_15px_rgba(91,110,245,0.1)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <div class="usp-title font-bold text-white text-lg tracking-tight mb-1">Transparent & async-friendly</div>
+            <div class="usp-desc text-muted text-sm sm:text-base leading-relaxed max-w-lg font-normal">Weekly progress updates, open project boards, and no surprise invoices.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: Flowchart (Our Process) -->
+    <div class="about-visual reveal flex flex-col items-stretch justify-center w-full" aria-hidden="true">
+      <div class="flowchart-container bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-10 backdrop-blur-md">
+        <div class="flowchart-title font-logo text-xl sm:text-2xl font-bold text-white mb-8 tracking-tight">Our Process</div>
+        <div class="flowchart flex flex-col gap-0">
+          <div class="flow-step flex items-center gap-6 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-accent hover:translate-x-2 transition-all duration-300 relative">
+            <div class="flow-number w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-logo text-lg font-extrabold text-white flex-shrink-0 shadow-[0_4px_20px_rgba(91,110,245,0.3)]">01</div>
+            <div class="flow-content flex-1">
+              <div class="flow-label font-logo font-bold text-white text-base sm:text-lg mb-1 tracking-tight">Discovery</div>
+              <div class="flow-desc text-muted text-xs sm:text-sm font-normal leading-snug">Understand your vision & goals</div>
+            </div>
+          </div>
+          
+          <div class="flow-arrow flex items-center justify-center h-8 text-accent text-lg font-bold opacity-60">↓</div>
+          
+          <div class="flow-step flex items-center gap-6 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-accent hover:translate-x-2 transition-all duration-300 relative">
+            <div class="flow-number w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-logo text-lg font-extrabold text-white flex-shrink-0 shadow-[0_4px_20px_rgba(91,110,245,0.3)]">02</div>
+            <div class="flow-content flex-1">
+              <div class="flow-label font-logo font-bold text-white text-base sm:text-lg mb-1 tracking-tight">Strategy</div>
+              <div class="flow-desc text-muted text-xs sm:text-sm font-normal leading-snug">Plan the technical architecture</div>
+            </div>
+          </div>
+          
+          <div class="flow-arrow flex items-center justify-center h-8 text-accent text-lg font-bold opacity-60">↓</div>
+          
+          <div class="flow-step flex items-center gap-6 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-accent hover:translate-x-2 transition-all duration-300 relative">
+            <div class="flow-number w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-logo text-lg font-extrabold text-white flex-shrink-0 shadow-[0_4px_20px_rgba(91,110,245,0.3)]">03</div>
+            <div class="flow-content flex-1">
+              <div class="flow-label font-logo font-bold text-white text-base sm:text-lg mb-1 tracking-tight">Build</div>
+              <div class="flow-desc text-muted text-xs sm:text-sm font-normal leading-snug">Develop with AI-first approach</div>
+            </div>
+          </div>
+          
+          <div class="flow-arrow flex items-center justify-center h-8 text-accent text-lg font-bold opacity-60">↓</div>
+          
+          <div class="flow-step flex items-center gap-6 p-5 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 hover:border-accent hover:translate-x-2 transition-all duration-300 relative">
+            <div class="flow-number w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent2 flex items-center justify-center font-logo text-lg font-extrabold text-white flex-shrink-0 shadow-[0_4px_20px_rgba(91,110,245,0.3)]">04</div>
+            <div class="flow-content flex-1">
+              <div class="flow-label font-logo font-bold text-white text-base sm:text-lg mb-1 tracking-tight">Launch</div>
+              <div class="flow-desc text-muted text-xs sm:text-sm font-normal leading-snug">Deploy & scale with confidence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div><!-- end max-w wrapper -->
+  </section>
+
+  <!-- OUR MISSION -->
+  <section id="mission" class="px-[5%] py-20 md:py-28 border-t border-white/5 relative z-10">
+    <div class="max-w-[1320px] mx-auto reveal">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <!-- Left: Mission text -->
+        <div>
+          <div class="eyebrow mb-4">Our Mission</div>
+          <div class="sep-line mb-8"></div>
+          <h2 class="font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-8">
+            Transforming ideas into<br />
+            <span class="bg-[linear-gradient(90deg,#fff,#9b87f5,#c084fc)] bg-clip-text text-transparent">impactful experiences.</span>
+          </h2>
+          <p class="text-muted text-base sm:text-lg leading-relaxed font-normal max-w-xl">
+            At NIYATRIX NEXORA, we transform ideas into impactful digital experiences through innovation, AI, and modern software engineering. Our mission is to empower students, startups, and businesses by building scalable technology solutions that inspire growth, solve real-world problems, and shape the future of digital transformation.
+          </p>
+        </div>
+
+        <!-- Right: What Drives Us -->
+        <div>
+          <div class="eyebrow mb-4">What Drives Us</div>
+          <div class="sep-line mb-8"></div>
+          <ul class="flex flex-col gap-5">
+            <li class="flex items-start gap-4">
+              <span class="mt-1 w-5 h-5 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-muted text-base leading-relaxed font-normal">Building scalable and future-ready software products</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="mt-1 w-5 h-5 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-muted text-base leading-relaxed font-normal">Delivering AI-powered and automation-driven solutions</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="mt-1 w-5 h-5 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-muted text-base leading-relaxed font-normal">Encouraging innovation through hackathons and real-world learning</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="mt-1 w-5 h-5 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-muted text-base leading-relaxed font-normal">Creating technology that simplifies and improves businesses</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="mt-1 w-5 h-5 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center flex-shrink-0">
+                <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#5b6ef5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="text-muted text-base leading-relaxed font-normal">Empowering the next generation of developers and entrepreneurs</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VISION -->
+  <section id="vision" class="px-[5%] py-20 md:py-28 bg-white/[0.01] border-t border-white/5 relative z-10">
+    <div class="max-w-[1320px] mx-auto reveal">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <!-- Left: Long-term goals -->
+        <div class="order-2 lg:order-1">
+          <div class="eyebrow mb-4">Our Long-Term Goals</div>
+          <div class="sep-line mb-8"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div class="benefit-card bg-surface border border-white/10 rounded-xl p-6 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-8 h-8 flex items-center justify-center text-lyzr-teal mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <p class="text-white text-sm font-semibold leading-snug">Globally recognized technology &amp; innovation company</p>
+            </div>
+
+            <div class="benefit-card bg-surface border border-white/10 rounded-xl p-6 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-8 h-8 flex items-center justify-center text-lyzr-teal mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <p class="text-white text-sm font-semibold leading-snug">Strong collaborations with industries &amp; institutions</p>
+            </div>
+
+            <div class="benefit-card bg-surface border border-white/10 rounded-xl p-6 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-8 h-8 flex items-center justify-center text-lyzr-teal mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <p class="text-white text-sm font-semibold leading-snug">Lead innovation in AI, automation &amp; intelligent systems</p>
+            </div>
+
+            <div class="benefit-card bg-surface border border-white/10 rounded-xl p-6 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-8 h-8 flex items-center justify-center text-lyzr-teal mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+              </div>
+              <p class="text-white text-sm font-semibold leading-snug">Impactful digital solutions for real-world challenges</p>
+            </div>
+
+            <div class="benefit-card bg-surface border border-white/10 rounded-xl p-6 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-8 h-8 flex items-center justify-center text-lyzr-teal mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <p class="text-white text-sm font-semibold leading-snug">Mentorship, internships &amp; growth for students</p>
+            </div>
+
+            <div class="benefit-card bg-surface border border-white/10 rounded-xl p-6 hover:border-white/25 hover:-translate-y-1 transition-all duration-300">
+              <div class="w-8 h-8 flex items-center justify-center text-lyzr-teal mb-4">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              </div>
+              <p class="text-white text-sm font-semibold leading-snug">Expand globally through futuristic scalable technologies</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: Vision text -->
+        <div class="order-1 lg:order-2">
+          <div class="eyebrow mb-4">Our Vision</div>
+          <div class="sep-line mb-8"></div>
+          <h2 class="font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-8">
+            A global technology<br />
+            <span class="bg-[linear-gradient(90deg,#fff,#00d4c8,#5b6ef5)] bg-clip-text text-transparent">ecosystem.</span>
+          </h2>
+          <p class="text-muted text-base sm:text-lg leading-relaxed font-normal max-w-xl">
+            Our vision is to build a global technology ecosystem where innovation, AI, education, and software engineering converge to redefine the future of digital transformation. We aspire to become a trusted innovation-driven company that bridges creativity, technology, and real-world impact on a global scale.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER VISION -->
+  <section id="founder" class="px-[5%] py-24 md:py-32 bg-white/[0.01] border-t border-white/5">
+    <div class="max-w-[1320px] mx-auto reveal">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <!-- Left: Founder image -->
+        <div class="relative flex justify-center lg:justify-start">
+          <!-- Glow behind image -->
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/20 via-accent2/10 to-transparent blur-3xl opacity-60 pointer-events-none"></div>
+          <!-- Image frame -->
+          <div class="relative w-full max-w-sm lg:max-w-full">
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.6),0_0_0_1px_rgba(91,110,245,0.12)]">
+              <img
+                src="{% static 'images/founder.webp' %}"
+                alt="Trivinesh Pentakota — Founder &amp; Director, NIYATRIX NEXORA"
+                width="1022"
+                height="900"
+                class="w-full h-auto object-cover object-top"
+                style="max-height: 520px;"
+                loading="lazy"
+                decoding="async"
+                onerror="this.style.display='none';this.onerror=null;"
+              />
+              <!-- Subtle gradient overlay at bottom -->
+              <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#03050c]/80 to-transparent pointer-events-none"></div>
+              <!-- Name badge -->
+              <div class="absolute bottom-5 left-5 right-5">
+                <div class="inline-flex items-center gap-3 bg-[#03050c]/80 backdrop-blur-md border border-white/10 rounded-xl px-4 py-3">
+                  <div class="w-2 h-2 rounded-full bg-lyzr-teal shadow-[0_0_8px_#00d4c8]"></div>
+                  <div>
+                    <div class="text-white text-sm font-bold font-logo tracking-tight">Trivinesh Pentakota</div>
+                    <div class="text-muted2 text-xs font-medium tracking-wider uppercase mt-0.5">Founder &amp; Director, NIYATRIX NEXORA</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Vision text -->
+        <div>
+          <div class="eyebrow mb-4">Founder's Vision</div>
+          <div class="sep-line mb-8"></div>
+          <h2 class="font-hero text-4xl sm:text-5xl lg:text-[3.25rem] font-semibold leading-[1.05] tracking-tight text-white mb-8">
+            Building a global<br />
+            <span class="bg-[linear-gradient(90deg,#fff,#9b87f5,#c084fc)] bg-clip-text text-transparent">innovation ecosystem.</span>
+          </h2>
+          <p class="text-muted text-base sm:text-lg leading-relaxed font-normal mb-8">
+            At NIYATRIX NEXORA, we envision building a future where innovation, AI, education, and technology come together to create meaningful real-world impact. Our goal is not only to develop powerful digital solutions, but also to empower students, startups, and businesses through creativity, collaboration, and next-generation software engineering.
+          </p>
+          <p class="text-muted text-base sm:text-lg leading-relaxed font-normal mb-10">
+            By bridging learning, intelligent systems, and digital transformation, we aspire to build a global innovation ecosystem that inspires growth, solves real-world challenges, and shapes the future of technology.
+          </p>
+          <!-- Signature-style accent -->
+          <div class="flex items-center gap-4 pt-6 border-t border-white/10">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-accent to-accent3 flex items-center justify-center text-sm font-bold text-white shadow-[0_0_14px_rgba(91,110,245,0.4)]">TP</div>
+            <div>
+              <div class="text-white font-bold text-sm font-logo tracking-tight">Trivinesh Pentakota</div>
+              <div class="text-muted2 text-xs font-medium tracking-wider uppercase mt-0.5">Founder &amp; Director · NIYATRIX NEXORA</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS CAROUSEL -->
+  <section id="testimonials" class="px-[5%] py-14 md:py-20 overflow-hidden relative">
+    <div class="reveal mb-16 text-left">
+      <div class="eyebrow">Client Stories</div>
+      <div class="sep-line mb-8"></div>
+      <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">What our clients say</h2>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="relative max-w-4xl mx-auto">
+      <div class="overflow-hidden rounded-2xl">
+        <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out" style="transform: translateX(0px);">
+          
+          <!-- Card 1 -->
+          <div class="testi-card flex-shrink-0">
+            <div class="testi border border-white/10 p-10 sm:p-12 rounded-2xl relative flex flex-col justify-between transition-all duration-300 h-full">
+              <div>
+                <div class="text-accent2 text-xl mb-8">★★★★★</div>
+                <p class="testi-body text-white text-lg sm:text-xl italic leading-relaxed mb-10 font-normal">
+                  "NIYATRIX NEXORA transformed our entire product stack with AI. The team delivered beyond every expectation — the final product is genuinely stunning."
+                </p>
+              </div>
+              <div class="testi-author flex gap-4 items-center mt-auto pt-8 border-t border-white/10">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent to-accent3 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 shadow-[0_0_14px_rgba(91,110,245,0.4)]">AR</div>
+                <div>
+                  <div class="font-logo font-bold text-white text-base">Arjun Rao</div>
+                  <div class="text-xs text-muted2 font-bold tracking-wider uppercase mt-1">CTO, FinVerse</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testi-card flex-shrink-0">
+            <div class="testi border border-white/10 p-10 sm:p-12 rounded-2xl relative flex flex-col justify-between transition-all duration-300 h-full">
+              <div>
+                <div class="text-accent2 text-xl mb-8">★★★★★</div>
+                <p class="testi-body text-white text-lg sm:text-xl italic leading-relaxed mb-10 font-normal">
+                  "The landing page they built increased our conversion rate by 340%. Pure artistry combined with serious engineering — a rare combination."
+                </p>
+              </div>
+              <div class="testi-author flex gap-4 items-center mt-auto pt-8 border-t border-white/10">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent to-accent3 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 shadow-[0_0_14px_rgba(91,110,245,0.4)]">SN</div>
+                <div>
+                  <div class="font-logo font-bold text-white text-base">Shreya Nair</div>
+                  <div class="text-xs text-muted2 font-bold tracking-wider uppercase mt-1">Founder, LumiAI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testi-card flex-shrink-0">
+            <div class="testi border border-white/10 p-10 sm:p-12 rounded-2xl relative flex flex-col justify-between transition-all duration-300 h-full">
+              <div>
+                <div class="text-accent2 text-xl mb-8">★★★★★</div>
+                <p class="testi-body text-white text-lg sm:text-xl italic leading-relaxed mb-10 font-normal">
+                  "They thought like co-founders, not contractors. Shipped on time, kept us in the loop, and the code quality was genuinely impressive."
+                </p>
+              </div>
+              <div class="testi-author flex gap-4 items-center mt-auto pt-8 border-t border-white/10">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent to-accent3 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 shadow-[0_0_14px_rgba(91,110,245,0.4)]">MK</div>
+                <div>
+                  <div class="font-logo font-bold text-white text-base">Mohammed Khan</div>
+                  <div class="text-xs text-muted2 font-bold tracking-wider uppercase mt-1">CEO, NexaBuild</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="testi-card flex-shrink-0">
+            <div class="testi border border-white/10 p-10 sm:p-12 rounded-2xl relative flex flex-col justify-between transition-all duration-300 h-full">
+              <div>
+                <div class="text-accent2 text-xl mb-8">★★★★★</div>
+                <p class="testi-body text-white text-lg sm:text-xl italic leading-relaxed mb-10 font-normal">
+                  "Their cloud security audit and SOC2 readiness implementation was fast and clean. We passed our enterprise audits with zero notes."
+                </p>
+              </div>
+              <div class="testi-author flex gap-4 items-center mt-auto pt-8 border-t border-white/10">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent to-accent3 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 shadow-[0_0_14px_rgba(91,110,245,0.4)]">SJ</div>
+                <div>
+                  <div class="font-logo font-bold text-white text-base">Sarah Jenkins</div>
+                  <div class="text-xs text-muted2 font-bold tracking-wider uppercase mt-1">VP of Eng, VeloHealth</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="testi-card flex-shrink-0">
+            <div class="testi border border-white/10 p-10 sm:p-12 rounded-2xl relative flex flex-col justify-between transition-all duration-300 h-full">
+              <div>
+                <div class="text-accent2 text-xl mb-8">★★★★★</div>
+                <p class="testi-body text-white text-lg sm:text-xl italic leading-relaxed mb-10 font-normal">
+                  "An absolute powerhouse of execution. They took our dashboard requirements from Figma to production EKS in six weeks flat."
+                </p>
+              </div>
+              <div class="testi-author flex gap-4 items-center mt-auto pt-8 border-t border-white/10">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-accent to-accent3 flex items-center justify-center text-sm font-bold text-white flex-shrink-0 shadow-[0_0_14px_rgba(91,110,245,0.4)]">DC</div>
+                <div>
+                  <div class="font-logo font-bold text-white text-base">David Chen</div>
+                  <div class="text-xs text-muted2 font-bold tracking-wider uppercase mt-1">Co-Founder, RetailFlow</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex justify-between items-center mt-10">
+        <div id="carousel-dots" class="flex gap-2"></div>
+        <div class="flex gap-4">
+          <button onclick="prevSlide()" class="w-12 h-12 rounded-full border border-white/15 bg-white/5 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:border-accent hover:-translate-y-0.5 transition-all duration-300">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button onclick="nextSlide()" class="w-12 h-12 rounded-full border border-white/15 bg-white/5 backdrop-blur-md flex items-center justify-center text-white hover:bg-accent hover:border-accent hover:-translate-y-0.5 transition-all duration-300">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST INSIGHTS -->
+  <section id="insights-preview" class="px-[5%] py-24 md:py-32 border-t border-white/5">
+    <div class="section-header reveal mb-16 text-left">
+      <div class="eyebrow text-xs font-extrabold tracking-[0.25em] text-accent uppercase mb-4 block">Latest Insights</div>
+      <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+      <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Thoughts from our engineering team</h2>
+    </div>
+
+    <div class="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Post 1 -->
+      <article class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 transition-all duration-400 flex flex-col justify-between h-full group">
+        <div>
+          <div class="h-48 bg-gradient-to-br from-accent to-accent2 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <span class="text-xs font-bold tracking-widest text-white uppercase border border-white/20 px-6 py-3 rounded-full">Read Article</span>
+            </div>
+            <div class="font-hero text-5xl font-extrabold text-white/25">RAG</div>
+          </div>
+          <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-center mb-4 text-xs font-semibold">
+              <span class="text-accent uppercase tracking-wider">AI / Engineering</span>
+              <span class="text-muted2 font-medium">May 12, 2026</span>
+            </div>
+            <h3 class="font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug hover:text-accent transition-colors duration-300 cursor-pointer" onclick="openInsight('rag')">The Anatomy of a Production-Grade RAG Pipeline</h3>
+            <p class="text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">How to move beyond basic LLM prompts and build semantic architectures with low latency, hybrid search, and multi-agent coordination.</p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 sm:px-8 sm:pb-8 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-muted2 font-medium">By Arjun Rao · 7 min read</span>
+          <button class="text-xs font-bold text-lyzr-teal hover:text-white uppercase tracking-wider transition-colors duration-300 " onclick="openInsight('rag')">Read More →</button>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 transition-all duration-400 flex flex-col justify-between h-full group">
+        <div>
+          <div class="h-48 bg-gradient-to-br from-accent2 to-accent3 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <span class="text-xs font-bold tracking-widest text-white uppercase border border-white/20 px-6 py-3 rounded-full">Read Article</span>
+            </div>
+            <div class="font-hero text-5xl font-extrabold text-white/25">UI</div>
+          </div>
+          <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-center mb-4 text-xs font-semibold">
+              <span class="text-accent uppercase tracking-wider">Frontend / UX</span>
+              <span class="text-muted2 font-medium">Apr 28, 2026</span>
+            </div>
+            <h3 class="font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug hover:text-accent transition-colors duration-300 cursor-pointer" onclick="openInsight('cinematic-ui')">Why We Chose Next.js + Three.js for Cinematic UI</h3>
+            <p class="text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Behind the scenes of crafting motion-heavy interfaces that achieve high frame rates and delight users without sacrificing SEO.</p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 sm:px-8 sm:pb-8 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-muted2 font-medium">By Shreya Nair · 5 min read</span>
+          <button class="text-xs font-bold text-lyzr-teal hover:text-white uppercase tracking-wider transition-colors duration-300 " onclick="openInsight('cinematic-ui')">Read More →</button>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 transition-all duration-400 flex flex-col justify-between h-full group">
+        <div>
+          <div class="h-48 bg-gradient-to-br from-accent to-accent3 flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+              <span class="text-xs font-bold tracking-widest text-white uppercase border border-white/20 px-6 py-3 rounded-full">Read Article</span>
+            </div>
+            <div class="font-hero text-5xl font-extrabold text-white/25">OPS</div>
+          </div>
+          <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-center mb-4 text-xs font-semibold">
+              <span class="text-accent uppercase tracking-wider">DevOps / Cloud</span>
+              <span class="text-muted2 font-medium">Mar 15, 2026</span>
+            </div>
+            <h3 class="font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug hover:text-accent transition-colors duration-300 cursor-pointer" onclick="openInsight('kube-scale')">Scaling Kubernetes to Zero (And Back)</h3>
+            <p class="text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">How our engineering team saved 42% on monthly cloud infrastructure costs using Knative, EKS, and GitOps workflows.</p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 sm:px-8 sm:pb-8 pt-4 border-t border-white/5 flex items-center justify-between">
+          <span class="text-xs text-muted2 font-medium">By Mohammed Khan · 9 min read</span>
+          <button class="text-xs font-bold text-lyzr-teal hover:text-white uppercase tracking-wider transition-colors duration-300 " onclick="openInsight('kube-scale')">Read More →</button>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-[5%] py-24 md:py-32">
+    <div class="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
+    <div class="reveal flex flex-col justify-between">
+      <div>
+        <div class="eyebrow text-xs font-extrabold tracking-[0.25em] text-accent uppercase mb-4 block">Get in Touch</div>
+        <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+        <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Let's build<br />something great.</h2>
+        <p class="text-muted leading-relaxed text-base sm:text-lg mt-6 mb-10 font-normal">
+          Whether you're a startup with a bold idea or an enterprise ready to modernise — we're ready to build it with you.
+        </p>
+        
+        <div class="c-links flex flex-col gap-6 mt-12">
+          <a href="mailto:support@niyatrixnexora.com" class="c-link flex items-center gap-5 text-muted hover:text-white transition-all duration-300 hover:translate-x-1.5 font-medium text-base">
+            <div class="c-link-icon w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            support@niyatrixnexora.com
+          </a>
+          <a href="https://linkedin.com/company/niyatrixnexora" target="_blank" rel="noopener noreferrer" class="c-link flex items-center gap-5 text-muted hover:text-white transition-all duration-300 hover:translate-x-1.5 font-medium text-base">
+            <div class="c-link-icon w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            linkedin.com/company/niyatrix
+          </a>
+          <a href="https://github.com/niyatrix" target="_blank" rel="noopener noreferrer" class="c-link flex items-center gap-5 text-muted hover:text-white transition-all duration-300 hover:translate-x-1.5 font-medium text-base">
+            <div class="c-link-icon w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            github.com/niyatrix
+          </a>
+          <a href="https://maps.google.com/?q=Nellore,Andhra+Pradesh,India" target="_blank" rel="noopener noreferrer" class="c-link flex items-center gap-5 text-muted hover:text-white transition-all duration-300 hover:translate-x-1.5 font-medium text-base">
+            <div class="c-link-icon w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            Nellore, Andhra Pradesh, India
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Direct Message Form -->
+    <!-- Direct Message Form -->
+    <div class="reveal flex flex-col justify-start">
+      <form
+        id="contact-form"
+        class="form bg-white/[0.01] border border-white/10 p-8 sm:p-10 rounded-2xl backdrop-blur-md"
+        onsubmit="sendEmail(event)">
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label class="block text-xs text-muted font-bold tracking-widest uppercase mb-3">Name</label>
+            <input id="cf-name" name="from_name" class="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-lg font-ui text-sm sm:text-base transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none focus:shadow-[0_0_20px_rgba(91,110,245,0.15)] placeholder-white/40" type="text" placeholder="Your full name" required />
+          </div>
+          <div>
+            <label class="block text-xs text-muted font-bold tracking-widest uppercase mb-3">Email</label>
+            <input id="cf-email" name="reply_to" class="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-lg font-ui text-sm sm:text-base transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none focus:shadow-[0_0_20px_rgba(91,110,245,0.15)] placeholder-white/40" type="email" placeholder="you@company.com" required />
+          </div>
+        </div>
+
+        <div class="mb-6 relative">
+          <label class="block text-xs text-muted font-bold tracking-widest uppercase mb-3">Service</label>
+          <select id="cf-service" name="service" class="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-lg font-ui text-sm sm:text-base transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none focus:shadow-[0_0_20px_rgba(91,110,245,0.15)] appearance-none bg-[url('data:image/svg+xml,%3Csvg_xmlns=%22http://www.w3.org/2000/svg%22_width=%2216%22_height=%2216%22_fill=%22%23ffffff%22_viewBox=%220_0_16_16%22%3E%3Cpath_d=%22M7.247_11.14_2.451_5.658C1.885_5.013_2.345_4_3.204_4h9.592a1_1_0_0_1_.753_1.659l-4.796_5.48a1_1_0_0_1-1.506_0z%22/%3E%3C/svg%3E')] bg-no-repeat bg-[position:calc(100%-1.5rem)_center] pr-14">
+            <option class="bg-surface text-white p-4">AI Development</option>
+            <option class="bg-surface text-white p-4">Web Application</option>
+            <option class="bg-surface text-white p-4">Mobile App</option>
+            <option class="bg-surface text-white p-4">Cloud Solutions</option>
+            <option class="bg-surface text-white p-4">UI/UX Design</option>
+            <option class="bg-surface text-white p-4">Full-stack Product</option>
+            <option class="bg-surface text-white p-4">Other</option>
+          </select>
+        </div>
+
+        <div class="mb-8">
+          <label class="block text-xs text-muted font-bold tracking-widest uppercase mb-3">Tell us about your project</label>
+          <textarea id="cf-message" name="message" class="w-full bg-white/5 border border-white/10 text-white px-5 py-4 rounded-lg font-ui text-sm sm:text-base transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none focus:shadow-[0_0_20px_rgba(91,110,245,0.15)] placeholder-white/40 h-36 resize-none" placeholder="What are you building? What's the timeline? Any technical constraints?" required></textarea>
+        </div>
+
+        <button type="submit" id="sub-btn" class="bg-white text-black font-button text-xs font-bold tracking-wider uppercase w-full py-4 rounded hover:bg-accent hover:text-white transition-all duration-300 hover:shadow-lg">Send message →</button>
+      </form>
+    </div>
+    </div><!-- end max-w wrapper -->
+  </section>
+
+  {% include "partials/footer.html" with footer_local_sections=True %}
+  {% include "partials/global_modal.html" %}
+  {% include "partials/script_loader.html" %}
+
+  <!-- Interaction Scripts -->
+  <script>
+    // ── CONTACT TABS REMOVED
+
+    // ── TESTIMONIALS CAROUSEL — single card at a time
+    let currentSlide = 0;
+    const totalSlides = 5;
+    const track = document.getElementById('testimonial-track');
+    const dotsContainer = document.getElementById('carousel-dots');
+
+    function getCardWidth() {
+      return track.parentElement.offsetWidth;
+    }
+
+    function applyCardWidths() {
+      const w = getCardWidth();
+      document.querySelectorAll('.testi-card').forEach(c => {
+        c.style.width = w + 'px';
+      });
+    }
+
+    function updateCarousel() {
+      applyCardWidths();
+      const w = getCardWidth();
+      track.style.transform = `translateX(-${currentSlide * w}px)`;
+
+      // Rebuild dots
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const btn = document.createElement('button');
+        btn.className = `h-2.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-6 bg-accent' : 'w-2.5 bg-white/20'}`;
+        btn.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(btn);
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+
+    function goToSlide(idx) {
+      currentSlide = idx;
+      updateCarousel();
+    }
+
+    window.addEventListener('resize', updateCarousel);
+    setTimeout(updateCarousel, 100);
+    setInterval(nextSlide, 7000);
+
+
+    // ── DYNAMIC MODAL CONTENTS
+
+    // 1. Case Studies
+    const caseStudiesData = {
+      finverse: {
+        title: "FinVerse: AI-driven Financial Analysis Platform",
+        category: "Fintech / SaaS",
+        duration: "4 Months",
+        metric: "8x",
+        metricLabel: "Processing Speedup",
+        challenge: "Financial analysts at FinVerse were spending upwards of 48 hours manually digesting, filtering, and parsing 100+ page investment prospectus reports. The process was highly prone to transcription errors and delayed critical deal execution cycles.",
+        solution: "We built a specialized ingestion pipeline using a custom multi-agent architecture and Django. We utilized hybrid search (dense embeddings + keyword search) with Pinecone vector database. High-fidelity extraction nodes use fine-tuned LLMs that parse complex tabular financial spreadsheets, outputting structured JSON data mapped directly to internal analytical tables.",
+        results: [
+          "Extraction times reduced from 48 hours to 8 minutes per report.",
+          "99.8% extraction accuracy on nested financial statement tables.",
+          "Over $140K/year saved in manual analyst validation overhead."
+        ],
+        techStack: ["Python", "Django", "LangChain", "Pinecone", "AWS (ECS, Lambda)", "PostgreSQL"],
+        quote: "NIYATRIX NEXORA transformed our entire product stack with AI. The team delivered beyond every expectation — the final product is genuinely stunning.",
+        author: "Arjun Rao, CTO at FinVerse"
+      },
+      lumiai: {
+        title: "LumiAI: Immersive Digital Brand Hub",
+        category: "Generative Media / AI",
+        duration: "2 Months",
+        metric: "340%",
+        metricLabel: "Conversion Increase",
+        challenge: "LumiAI needed a web experience that instantly visualised their neural video generation technology. A generic static page failed to engage tech-savvy executives, leading to high bounce rates and low lead generation numbers.",
+        solution: "We designed and coded a cinematic single-page application using Next.js, customized Three.js WebGL shaders, and smooth animation hooks powered by GSAP. Users interact directly with physics-based neural particles that react to cursor motion and audio, demonstrating AI intelligence in real-time.",
+        results: [
+          "340% increase in enterprise demonstration booking conversions.",
+          "Average visitor duration increased from 35 seconds to 4.2 minutes.",
+          "Bounce rate reduced by 60% within the first week of deployment."
+        ],
+        techStack: ["Next.js", "TypeScript", "Three.js (WebGL)", "GSAP", "Tailwind CSS", "Vercel"],
+        quote: "The landing page they built increased our conversion rate by 340%. Pure artistry combined with serious engineering — a rare combination.",
+        author: "Shreya Nair, Founder at LumiAI"
+      },
+      nexabuild: {
+        title: "NexaBuild: Zero-Downtime DevOps & Cloud Pipeline",
+        category: "Enterprise Tech",
+        duration: "5 Months",
+        metric: "99.99%",
+        metricLabel: "Uptime Achieved",
+        challenge: "NexaBuild's legacy monolithic server environment was plagued by server crashes and downtime during daily code shipping. Cloud bills were spiralling due to leaking container instances and unoptimized resource provisioning.",
+        solution: "We decoupled their system, containerized microservices in Docker, and orchestrated the deployment using Amazon EKS (Kubernetes). We designed a GitOps continuous deployment pipeline using Terraform and ArgoCD, implementing automated active-active multi-region failovers.",
+        results: [
+          "Zero downtime recorded across 220+ deployments since launch.",
+          "42% decrease in monthly AWS infrastructure spend.",
+          "85% faster developer feedback loop via automated staging checks."
+        ],
+        techStack: ["AWS (EKS, RDS, S3)", "Kubernetes", "Terraform", "ArgoCD", "Docker", "Prometheus"],
+        quote: "They thought like co-founders, not contractors. Shipped on time, kept us in the loop, and the code quality was genuinely impressive.",
+        author: "Mohammed Khan, CEO at NexaBuild"
+      }
+    };
+
+        function openCaseStudy(slug) {
+      const data = caseStudiesData[slug];
+      if (!data) return;
+
+      const techBadges = data.techStack.map(t =>
+        `<span style="display:inline-flex;align-items:center;background:rgba(91,110,245,0.1);border:1px solid rgba(91,110,245,0.25);color:#c4cbff;padding:4px 12px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.04em;">${t}</span>`
+      ).join('');
+
+      const results = data.results.map(r =>
+        `<li style="display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);">
+           <span style="flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(0,212,200,0.12);border:1px solid rgba(0,212,200,0.3);display:flex;align-items:center;justify-content:center;margin-top:2px;">
+             <svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#00d4c8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+           </span>
+           <span style="color:#d1d1d6;font-size:13px;line-height:1.65;">${r}</span>
+         </li>`
+      ).join('');
+
+      const html = `
+        <div style="font-family:'Satoshi','Inter',sans-serif;color:#fff;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:18px;">
+            <span style="background:rgba(91,110,245,0.12);border:1px solid rgba(91,110,245,0.28);color:#9b87f5;padding:4px 14px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;">${data.category}</span>
+            <span style="color:#6b7280;font-size:11px;">Timeline: ${data.duration}</span>
+          </div>
+
+          <h2 style="font-family:'Clash Display','Space Grotesk',sans-serif;font-size:clamp(20px,3.5vw,30px);font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1.15;margin-bottom:22px;">${data.title}</h2>
+
+          <div style="background:linear-gradient(135deg,rgba(91,110,245,0.14),rgba(155,135,245,0.07));border:1px solid rgba(91,110,245,0.22);border-radius:14px;padding:18px 22px;margin-bottom:24px;display:flex;align-items:center;gap:18px;">
+            <div style="flex-shrink:0;">
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5vw,48px);font-weight:800;background:linear-gradient(90deg,#fff,#9b87f5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">${data.metric}</div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9ca3af;margin-top:5px;">${data.metricLabel}</div>
+            </div>
+            <div style="width:1px;height:48px;background:rgba(255,255,255,0.08);flex-shrink:0;"></div>
+            <p style="color:#9ca3af;font-size:12px;line-height:1.6;margin:0;">${data.challenge.substring(0,120)}…</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;">
+            <div style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:18px;">
+              <div style="font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#7ee8ff;margin-bottom:10px;">The Challenge</div>
+              <p style="color:#d1d1d6;font-size:12px;line-height:1.7;margin:0;">${data.challenge}</p>
+            </div>
+            <div style="background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:18px;">
+              <div style="font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#7ee8ff;margin-bottom:10px;">Our Approach</div>
+              <p style="color:#d1d1d6;font-size:12px;line-height:1.7;margin:0;">${data.solution}</p>
+            </div>
+          </div>
+
+          <div style="margin-bottom:22px;">
+            <div style="font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#7ee8ff;margin-bottom:6px;">Key Results</div>
+            <ul style="list-style:none;padding:0;margin:0;">${results}</ul>
+          </div>
+
+          <div style="padding-top:18px;border-top:1px solid rgba(255,255,255,0.07);margin-bottom:20px;">
+            <div style="font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#7ee8ff;margin-bottom:10px;">Technologies Deployed</div>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;">${techBadges}</div>
+          </div>
+
+          <div style="background:rgba(91,110,245,0.06);border:1px solid rgba(91,110,245,0.18);border-radius:12px;padding:18px 22px;position:relative;">
+            <p style="color:#d1d1d6;font-size:13px;font-style:italic;line-height:1.7;padding-left:20px;margin-bottom:10px;">"${data.quote}"</p>
+            <div style="text-align:right;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#9b87f5;">— ${data.author}</div>
+          </div>
+        </div>`;
+      openModal(html);
+    }
+
+    // 2. Blog Insights
+    const insightsData = {
+      rag: {
+        title: "The Anatomy of a Production-Grade RAG Pipeline",
+        category: "AI / Engineering",
+        date: "May 12, 2026",
+        readTime: "7 min read",
+        author: "Arjun Rao",
+        authorRole: "CTO, Niyatrix Nexora",
+        content: `
+          <p class="mb-6 leading-relaxed">Many organizations begin their AI journey by building a simple prototype using LangChain, loading documents into vector storage, and running basic similarity queries. However, moving this setup to a production level reveals massive gaps: hallucination, search retrieval leakage, and slow latencies.</p>
+          
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Dense vs. Sparse Hybrid Search</h4>
+          <p class="mb-6 leading-relaxed">A production-grade pipeline must not rely solely on dense embeddings (like OpenAI text-embedding-ada-002). We utilize a hybrid model that merges vector embeddings with BM25 keyword matching scores. This ensures that specific IDs, dates, or serial codes (which dense vectors often dilute) are accurately retrieved.</p>
+
+          <h4 class="text-white font-bold text-lg mb-4">2. The Metadata Layer & Reciprocal Rank Fusion (RRF)</h4>
+          <p class="mb-6 leading-relaxed">Rather than feeding arbitrary chunks directly, documents must be parsed and tagged with metadata. Using Reciprocal Rank Fusion, we prioritize matching chunks that correlate with structured data schemas (e.g. document type, section titles, revision date).</p>
+          
+          <h4 class="text-white font-bold text-lg mb-4">3. Agentic Rerankers</h4>
+          <p class="mb-6 leading-relaxed">Before sending context to the generator model, we pass candidate chunks through a cross-encoder model (Cohere Rerank or fine-tuned local models). This filters out irrelevant chunks, keeping token counts down and response speeds fast.</p>
+        `
+      },
+      'cinematic-ui': {
+        title: "Why We Chose Next.js + Three.js for Cinematic UI",
+        category: "Frontend / UX",
+        date: "Apr 28, 2026",
+        readTime: "5 min read",
+        author: "Shreya Nair",
+        authorRole: "Design Director, Niyatrix Nexora",
+        content: `
+          <p class="mb-6 leading-relaxed">As an AI startup engineering partner, our site must establish visual authority. We chose to combine Next.js, WebGL via Three.js, and GSAP for a unified cinematic experience that is both visual and highly optimized.</p>
+          
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Overcoming the WebGL Overhead</h4>
+          <p class="mb-6 leading-relaxed">Cinematic sites often run slow on mid-tier mobile devices. To combat this, we decouple our WebGL loops. The canvas elements are paused dynamically when scrolled out of view using standard IntersectionObservers. This drops CPU usage to zero on inactive page sections.</p>
+
+          <h4 class="text-white font-bold text-lg mb-4">2. Seamless Routing and Shared Asset Management</h4>
+          <p class="mb-6 leading-relaxed">Using Next.js routing, we avoid page reloads which would reset the WebGL rendering context. WebGL assets are cached in memory globally, allowing transitions between route pages to feel instantaneous.</p>
+          
+          <h4 class="text-white font-bold text-lg mb-4">3. SEO & Core Web Vitals Compatibility</h4>
+          <p class="mb-6 leading-relaxed">We keep all text assets strictly inside semantic HTML. Shaders only run in the background, keeping our DOM tree light and preserving full accessibility (WCAG AA compliance) and Google crawler readability.</p>
+        `
+      },
+      'kube-scale': {
+        title: "Scaling Kubernetes to Zero (And Back) for Development",
+        category: "DevOps / Cloud",
+        date: "Mar 15, 2026",
+        readTime: "9 min read",
+        author: "Mohammed Khan",
+        authorRole: "DevOps Architect, Niyatrix Nexora",
+        content: `
+          <p class="mb-6 leading-relaxed">Maintaining sandbox environments for a scaling development team is a massive driver of cloud resource leaks. Leaving dev clusters running 24/7 on AWS EKS is expensive. Here is how we automated our cloud infrastructure costs downward by 42%.</p>
+          
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Serverless Container Provisioning via Knative</h4>
+          <p class="mb-6 leading-relaxed">By integrating Knative Serving into our development clusters, pods auto-scale down to zero replica instances if there is no active traffic for 15 minutes. The cluster nodes themselves are scaled down automatically by Karpenter.</p>
+
+          <h4 class="text-white font-bold text-lg mb-4">2. The Cold-Start Obstacle</h4>
+          <p class="mb-6 leading-relaxed">Scaling up from zero pods introduces a 'cold-start' latency (usually 5 to 15 seconds). To maintain developer flow, we cache core container images locally across nodes using registry-mirrors and pre-pulling scripts, cutting starts to under 2.5 seconds.</p>
+          
+          <h4 class="text-white font-bold text-lg mb-4">3. GitOps Continuous Delivery</h4>
+          <p class="mb-6 leading-relaxed">Dev branches automatically spin up dynamic ingress paths when pushed, and are garbage-collected via ArgoCD sync configurations when branches are merged or deleted in GitHub.</p>
+        `
+      }
+    };
+
+        function openInsight(slug) {
+      const data = insightsData[slug];
+      if (!data) return;
+
+      const initials = data.author.split(' ').map(n => n[0]).join('');
+
+      const html = `
+        <div style="font-family:'Satoshi','Inter',sans-serif;color:#fff;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+            <span style="background:rgba(0,212,200,0.1);border:1px solid rgba(0,212,200,0.25);color:#7ee8ff;padding:4px 12px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;">${data.category}</span>
+            <span style="color:#6b7280;font-size:11px;">${data.date} · ${data.readTime}</span>
+          </div>
+
+          <h2 style="font-family:'Clash Display','Space Grotesk',sans-serif;font-size:clamp(20px,3.5vw,28px);font-weight:700;color:#fff;letter-spacing:-.03em;line-height:1.2;margin-bottom:18px;">${data.title}</h2>
+
+          <div style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:10px;margin-bottom:22px;">
+            <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#9b87f5,#c084fc);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;">${initials}</div>
+            <div>
+              <div style="font-weight:700;color:#fff;font-size:13px;">${data.author}</div>
+              <div style="font-size:10px;color:#9ca3af;text-transform:uppercase;letter-spacing:.08em;margin-top:2px;">${data.authorRole}</div>
+            </div>
+          </div>
+
+          <div style="padding-top:20px;border-top:1px solid rgba(255,255,255,0.07);color:#d1d1d6;font-size:13px;line-height:1.8;">
+            ${data.content}
+          </div>
+        </div>`;
+      openModal(html);
+    }
+
+  </script>
+
+  <!-- ── BACK TO TOP BUTTON ── -->
+  <button id="btt-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"
+    style="position:fixed;bottom:2rem;right:2rem;z-index:9990;width:44px;height:44px;border-radius:50%;
+           background:rgba(8,10,20,0.85);border:1px solid rgba(91,110,245,0.4);color:#9b87f5;
+           display:flex;align-items:center;justify-content:center;cursor:pointer;
+           opacity:0;pointer-events:none;transform:translateY(12px);
+           transition:opacity 0.35s ease,transform 0.35s ease,background 0.25s ease,border-color 0.25s ease;
+           backdrop-filter:blur(12px);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function(){
+      var btt = document.getElementById('btt-btn');
+      window.addEventListener('scroll', function(){
+        if (window.scrollY > 400) {
+          btt.style.opacity = '1';
+          btt.style.pointerEvents = 'auto';
+          btt.style.transform = 'translateY(0)';
+        } else {
+          btt.style.opacity = '0';
+          btt.style.pointerEvents = 'none';
+          btt.style.transform = 'translateY(12px)';
+        }
+      }, {passive: true});
+      btt.addEventListener('mouseenter', function(){ btt.style.background='rgba(91,110,245,0.25)'; btt.style.borderColor='rgba(91,110,245,0.8)'; });
+      btt.addEventListener('mouseleave', function(){ btt.style.background='rgba(8,10,20,0.85)'; btt.style.borderColor='rgba(91,110,245,0.4)'; });
+    })();
+  </script>
+
+  <!-- Contact form handler -->
+  <script>
+    function sendEmail(e) {
+      e.preventDefault();
+      var btn  = document.getElementById('sub-btn');
+      var form = document.getElementById('contact-form');
+
+      var body = new URLSearchParams({
+        from_name: document.getElementById('cf-name').value,
+        reply_to:  document.getElementById('cf-email').value,
+        service:   document.getElementById('cf-service').value,
+        message:   document.getElementById('cf-message').value
+      });
+
+      btn.textContent   = 'Sending\u2026';
+      btn.style.opacity = '0.7';
+      btn.disabled      = true;
+
+      fetch('/contact/', {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/x-www-form-urlencoded',
+          'X-CSRFToken':   (document.cookie.match('(^|;)\\s*csrftoken=([^;]+)') || [])[2] || ''
+        },
+        body: body.toString()
+      })
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.status === 'ok') {
+          btn.textContent      = '\u2713 Message received \u2014 we\u2019ll reply within 24h';
+          btn.style.background = '#059669';
+          btn.style.color      = '#ffffff';
+          btn.style.opacity    = '1';
+          btn.disabled         = false;
+          form.reset();
+          setTimeout(function() {
+            btn.textContent      = 'Send message \u2192';
+            btn.style.background = '';
+            btn.style.color      = '';
+          }, 6000);
+        } else {
+          throw new Error(data.message || 'Server error');
+        }
+      })
+      .catch(function() {
+        btn.textContent      = '\u2717 Failed \u2014 email support@niyatrixnexora.com';
+        btn.style.background = '#dc2626';
+        btn.style.color      = '#ffffff';
+        btn.style.opacity    = '1';
+        btn.disabled         = false;
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+

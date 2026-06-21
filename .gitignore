@@ -1,0 +1,53 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/staticfiles/
+/static/
+/media/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Virtual environments
+destiny/
+venv/
+env/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if using Tailwind build tooling)
+node_modules/
+*.css.map
+
+# Build artifacts
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Vercel
+.vercel/
+
+# Misc
+premium-styles.css
+create_favicon.py
+niyatrix-nexora-prd.md
+niyatrix_production_fix_prompt.md
+performance_issues_report.md
+production_readiness_plan.md

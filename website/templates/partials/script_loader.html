@@ -1,0 +1,31 @@
+{% load static %}
+<script>
+  (function() {
+    var isOffline = window.location.protocol === 'file:' || window.location.pathname.indexOf('/website/templates/') !== -1;
+    var paths = isOffline ? {
+      three: '../static/js/three.min.js',
+      gsap: '../static/js/gsap.min.js',
+      app: '../static/js/script.js?v=20260621-1'
+    } : {
+      three: "{% static 'js/three.min.js' %}",
+      gsap: "{% static 'js/gsap.min.js' %}",
+      app: "{% static 'js/script.js' %}?v=20260621-1"
+    };
+    var needsThree = !!document.getElementById('bg') || !!document.getElementById('stack-canvas') || !!document.querySelector('.svc-cell');
+    var needsGsap = needsThree || !!document.getElementById('global-modal') || !!document.querySelector('.blog-card') || !!document.querySelector('.position-card');
+    var scripts = needsThree ? [paths.three, paths.gsap, paths.app] : (needsGsap ? [paths.gsap, paths.app] : [paths.app]);
+
+    function loadScript(idx) {
+      if (idx >= scripts.length) return;
+      var s = document.createElement('script');
+      s.src = scripts[idx];
+      s.defer = true;
+      s.async = false;
+      s.onload = function() { loadScript(idx + 1); };
+      document.body.appendChild(s);
+    }
+
+    var schedule = window.requestIdleCallback || function(cb) { window.setTimeout(cb, 120); };
+    schedule(function() { loadScript(0); });
+  })();
+</script>

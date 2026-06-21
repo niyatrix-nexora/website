@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en" class="scroll-smooth">
+
+
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Careers — NIYATRIX NEXORA</title>
+
+
+
+  <!-- SEO & Social -->
+
+  <meta name="description" content="Join NIYATRIX NEXORA — we're hiring engineers, designers, and innovators to build the next generation of AI-powered software solutions.">
+
+  <meta property="og:title" content="Careers — NIYATRIX NEXORA">
+
+  <meta property="og:description" content="Join NIYATRIX NEXORA — we're hiring engineers, designers, and innovators to build the next generation of AI-powered software solutions.">
+
+<meta property="og:url" content="https://niyatrixnexora.com/careers/">
+   <meta property="og:type" content="website">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Careers — NIYATRIX NEXORA">
+   <meta name="twitter:description" content="Join NIYATRIX NEXORA — we're hiring engineers, designers, and innovators to build the next generation of AI-powered software solutions.">
+
+  <link rel="canonical" href="https://niyatrixnexora.com/careers/">
+
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+  
+
+  <!-- Font Imports -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900&f[]=satoshi@1,2&f[]=clash-display@1,2&f[]=cabinet-grotesk@1,2&f[]=general-sans@1,2&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}?v=20260616-1" id="tailwind-stylesheet" />
+<link rel="stylesheet" href="{% static 'css/styles.css' %}?v=20260522-1" id="main-stylesheet" />
+
+  <script>
+
+    if (window.location.protocol === 'file:' || window.location.pathname.indexOf('/website/templates/') !== -1) {
+
+      document.getElementById('main-stylesheet').setAttribute('href', '../static/css/styles.css?v=20260606-2');
+      document.getElementById('tailwind-stylesheet').setAttribute('href', '../static/css/tailwind.css?v=20260616-1');
+
+    }
+
+  </script>
+
+</head>
+
+
+
+<body class="bg-bg text-white font-body overflow-x-hidden min-h-screen ">
+
+
+
+  <canvas id="bg"></canvas>
+
+  <canvas id="aura-canvas"></canvas>
+
+
+
+  <!-- NAV -->
+
+  <nav class="w-[92%] max-w-[1320px] z-[1000] px-5 py-3 md:px-8 md:py-3.5 flex justify-between items-center bg-[#03050c]/60 backdrop-blur-xl border border-white/10 rounded-xl">
+
+
+
+    <!-- Logo -->
+
+    <a href="{% url 'home' %}" class="logo font-logo font-bold text-base md:text-lg tracking-tight text-white flex items-center gap-2 shrink-0 relative z-[1001] drop-shadow-[0_0_20px_rgba(91,110,245,0.3)]">
+
+      NIYATRIX <span class="text-accent2 font-bold">NEXORA</span>
+
+      <span class="logo-dot w-2 h-2 rounded-full bg-accent shadow-[0_0_20px_#5b6ef5] animate-[pulseDot_2.4s_ease_infinite]"></span>
+
+    </a>
+
+
+
+    <!-- Desktop links -->
+
+    <ul class="nav-desktop hidden md:flex items-center gap-5 lg:gap-8 list-none">
+
+      <li><a href="{% url 'home' %}#services"     class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Services</a></li>
+
+      <li><a href="{% url 'home' %}#case-studies" class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Case Studies</a></li>
+
+      <li><a href="{% url 'home' %}#about"        class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">About</a></li>
+
+      <li><a href="{% url 'blog' %}"              class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Blog</a></li>
+
+      <li><a href="{% url 'careers' %}"           class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-white uppercase transition-colors duration-300 whitespace-nowrap">Careers</a></li>
+
+    </ul>
+
+
+
+    <!-- Desktop CTA -->
+
+    <a href="{% url 'home' %}#contact" class="nav-cta hidden md:inline-flex items-center shrink-0 bg-white text-black px-5 py-2 rounded font-button text-[10px] lg:text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(91,110,245,0.35)] whitespace-nowrap">Work with Us</a>
+
+
+
+    <!-- Mobile hamburger -->
+
+    <button class="menu-btn flex md:hidden flex-col gap-[5px] cursor-pointer p-2 z-[1002] shrink-0 bg-transparent border-0" onclick="toggleMenu()" aria-label="Toggle menu">
+
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300"></span>
+
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+
+    </button>
+
+
+
+    <!-- Mobile dropdown -->
+
+    <ul class="nav-mobile md:hidden absolute top-full left-0 right-0 mt-3 flex-col items-center gap-5 list-none bg-[#03050c]/97 backdrop-blur-2xl border border-white/10 rounded-xl px-6 py-8 z-[999]">
+
+      <li><a href="{% url 'home' %}#services"     class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Services</a></li>
+
+      <li><a href="{% url 'home' %}#case-studies" class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Case Studies</a></li>
+
+      <li><a href="{% url 'home' %}#about"        class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">About</a></li>
+
+      <li><a href="{% url 'blog' %}"              class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300" onclick="closeMenu()">Blog</a></li>
+
+      <li><a href="{% url 'careers' %}"           class="font-navbar text-xs font-semibold tracking-widest text-white uppercase transition-colors duration-300" onclick="closeMenu()">Careers</a></li>
+
+      <li class="w-full text-center pt-2 border-t border-white/10">
+
+        <a href="{% url 'home' %}#contact" class="inline-block bg-white text-black px-8 py-3 rounded font-button text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 mt-2" onclick="closeMenu()">Work with Us</a>
+
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+
+  <!-- HERO -->
+
+  <section id="hero" class="min-h-[50vh] flex flex-col items-center justify-center text-center px-4 py-24 relative overflow-x-hidden">
+
+    <div class="hero-eyebrow inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest text-muted uppercase mb-10 font-ui backdrop-blur-md">
+
+      <span class="hero-eyebrow-dot w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#5b6ef5]"></span>
+
+      Join Our Team
+
+    </div>
+
+
+
+    <h1 class="font-hero text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight mb-8 text-white filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+
+      Build the<br />
+
+      <em class="not-italic font-normal text-white/60 tracking-tight">future of</em><br />
+
+      <span class="h1-line2 block bg-[linear-gradient(90deg,#fff,#9b87f5,#c084fc,#fff)] bg-[length:200%_auto] bg-clip-text text-transparent animate-[gradientFlow_5s_linear_infinite] tracking-tighter pb-2">software with us.</span>
+
+    </h1>
+
+
+
+    <p class="hero-desc text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-12 sm:mb-16 font-normal tracking-tight">
+
+      Join a team of passionate engineers, designers, and innovators building the next generation of AI-powered software solutions.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- OPEN POSITIONS -->
+
+  <section id="positions" class="px-[5%] py-24 md:py-32 relative z-10">
+
+    <div class="max-w-[1400px] mx-auto">
+
+      <div class="section-header reveal mb-16 text-left">
+
+        <div class="eyebrow text-xs font-extrabold tracking-[0.25em] text-accent uppercase mb-4 block">Open Positions</div>
+
+        <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+
+        <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Current openings</h2>
+
+        <p class="section-sub text-muted text-base sm:text-lg max-w-xl leading-relaxed mt-6 font-normal">We're always looking for talented individuals to join our team. Check out our current openings below.</p>
+
+      </div>
+
+
+
+      <div class="positions-grid reveal grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        
+
+        <!-- Job Card 1 -->
+
+        <div class="position-card bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between" id="role-ai">
+
+          <div>
+
+            <div class="position-header flex justify-between items-start mb-4 gap-4">
+
+              <h3 class="position-title font-hero text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">Senior AI Engineer</h3>
+
+              <span class="position-type bg-accent/15 text-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Full-time</span>
+
+            </div>
+
+            <div class="position-details flex gap-6 mb-6 text-xs sm:text-sm text-muted2 font-medium">
+
+              <span class="position-location">Remote / Nellore</span>
+
+              <span class="position-salary">Competitive</span>
+
+            </div>
+
+            <p class="position-desc text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">We're looking for an experienced AI engineer to lead our machine learning initiatives and build cutting-edge AI solutions.</p>
+
+            
+
+            <!-- Accordion Details Container -->
+
+            <div id="details-ai" class="hidden overflow-hidden mt-6 pt-6 border-t border-white/5 text-left transition-all duration-300">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm mb-6">
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Key Responsibilities</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>Design and implement multi-agent workflows</li>
+
+                    <li>Fine-tune open-source models (LLaMA, Mistral)</li>
+
+                    <li>Optimize RAG query pipelines and vector DB search</li>
+
+                    <li>Deploy robust model hosting endpoints on AWS/GCP</li>
+
+                  </ul>
+
+                </div>
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">What We Look For</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>3+ years building production AI solutions</li>
+
+                    <li>Deep understanding of PyTorch or TensorFlow</li>
+
+                    <li>Expertise with LangChain/LlamaIndex frameworks</li>
+
+                    <li>Nellore presence or remote overlap (+-3h IST)</li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="flex items-center gap-4 mt-6">
+
+            <button onclick="toggleDetails('ai')" id="btn-toggle-ai" class="bg-white/5 border border-white/10 hover:border-accent text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Learn More ↓</button>
+
+            <button onclick="openApplyModal('Senior AI Engineer')" class="bg-white hover:bg-accent text-black hover:text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Apply now →</button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Job Card 2 -->
+
+        <div class="position-card bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between" id="role-fs">
+
+          <div>
+
+            <div class="position-header flex justify-between items-start mb-4 gap-4">
+
+              <h3 class="position-title font-hero text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">Full Stack Developer</h3>
+
+              <span class="position-type bg-accent/15 text-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Full-time</span>
+
+            </div>
+
+            <div class="position-details flex gap-6 mb-6 text-xs sm:text-sm text-muted2 font-medium">
+
+              <span class="position-location">Remote / Nellore</span>
+
+              <span class="position-salary">Competitive</span>
+
+            </div>
+
+            <p class="position-desc text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Join our development team to build scalable web applications using React, Node.js, and modern cloud technologies.</p>
+
+            
+
+            <!-- Accordion Details Container -->
+
+            <div id="details-fs" class="hidden overflow-hidden mt-6 pt-6 border-t border-white/5 text-left transition-all duration-300">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm mb-6">
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Key Responsibilities</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>Develop secure, responsive React/Next.js frontends</li>
+
+                    <li>Build robust microservices using Node.js or Python</li>
+
+                    <li>Write database migrations and maintain schemas</li>
+
+                    <li>Implement micro-animations and clean UI states</li>
+
+                  </ul>
+
+                </div>
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">What We Look For</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>2+ years React, Next.js & Tailwind CSS experience</li>
+
+                    <li>Fluent with PostgreSQL, Redis, and Prisma</li>
+
+                    <li>Familiar with Docker, GitHub Actions, and AWS</li>
+
+                    <li>Good product-focused intuition and design eye</li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="flex items-center gap-4 mt-6">
+
+            <button onclick="toggleDetails('fs')" id="btn-toggle-fs" class="bg-white/5 border border-white/10 hover:border-accent text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Learn More ↓</button>
+
+            <button onclick="openApplyModal('Full Stack Developer')" class="bg-white hover:bg-accent text-black hover:text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Apply now →</button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Job Card 3 -->
+
+        <div class="position-card bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between" id="role-design">
+
+          <div>
+
+            <div class="position-header flex justify-between items-start mb-4 gap-4">
+
+              <h3 class="position-title font-hero text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">UI/UX Designer</h3>
+
+              <span class="position-type bg-accent/15 text-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Full-time</span>
+
+            </div>
+
+            <div class="position-details flex gap-6 mb-6 text-xs sm:text-sm text-muted2 font-medium">
+
+              <span class="position-location">Remote / Nellore</span>
+
+              <span class="position-salary">Competitive</span>
+
+            </div>
+
+            <p class="position-desc text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Create beautiful, intuitive interfaces that users love. Work closely with our engineering team to bring designs to life.</p>
+
+            
+
+            <!-- Accordion Details Container -->
+
+            <div id="details-design" class="hidden overflow-hidden mt-6 pt-6 border-t border-white/5 text-left transition-all duration-300">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm mb-6">
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Key Responsibilities</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>Construct responsive high-fidelity prototypes in Figma</li>
+
+                    <li>Build and maintain design token architectures</li>
+
+                    <li>Gather user feedback and run A/B testing cycles</li>
+
+                    <li>Collaborate on design systems and stylesheets</li>
+
+                  </ul>
+
+                </div>
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">What We Look For</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>2+ years designing SaaS or consumer applications</li>
+
+                    <li>Strong typography, color harmony, and layout eye</li>
+
+                    <li>Experience maintaining Figma component libraries</li>
+
+                    <li>Basic knowledge of CSS is highly preferred</li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="flex items-center gap-4 mt-6">
+
+            <button onclick="toggleDetails('design')" id="btn-toggle-design" class="bg-white/5 border border-white/10 hover:border-accent text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Learn More ↓</button>
+
+            <button onclick="openApplyModal('UI/UX Designer')" class="bg-white hover:bg-accent text-black hover:text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Apply now →</button>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Job Card 4 -->
+
+        <div class="position-card bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between" id="role-devops">
+
+          <div>
+
+            <div class="position-header flex justify-between items-start mb-4 gap-4">
+
+              <h3 class="position-title font-hero text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">DevOps Engineer</h3>
+
+              <span class="position-type bg-accent/15 text-accent px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap">Full-time</span>
+
+            </div>
+
+            <div class="position-details flex gap-6 mb-6 text-xs sm:text-sm text-muted2 font-medium">
+
+              <span class="position-location">Remote / Nellore</span>
+
+              <span class="position-salary">Competitive</span>
+
+            </div>
+
+            <p class="position-desc text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Help us build and maintain robust cloud infrastructure using AWS, Kubernetes, and modern DevOps practices.</p>
+
+            
+
+            <!-- Accordion Details Container -->
+
+            <div id="details-devops" class="hidden overflow-hidden mt-6 pt-6 border-t border-white/5 text-left transition-all duration-300">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm mb-6">
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">Key Responsibilities</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>Manage automated Terraform infrastructure provisions</li>
+
+                    <li>Maintain EKS cluster configurations and integrations</li>
+
+                    <li>Monitor telemetry architectures (Prometheus/Grafana)</li>
+
+                    <li>Ensure secure networking protocols across environments</li>
+
+                  </ul>
+
+                </div>
+
+                <div>
+
+                  <h4 class="text-white font-bold text-xs uppercase tracking-wider mb-3">What We Look For</h4>
+
+                  <ul class="list-disc list-inside text-muted space-y-2 font-normal leading-relaxed">
+
+                    <li>2+ years orchestrating Kubernetes in production</li>
+
+                    <li>Expert in Terraform and Linux/Bash scripting</li>
+
+                    <li>Fluent with Docker networking and ingress routing</li>
+
+                    <li>Certified AWS Solution Architect is preferred</li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="flex items-center gap-4 mt-6">
+
+            <button onclick="toggleDetails('devops')" id="btn-toggle-devops" class="bg-white/5 border border-white/10 hover:border-accent text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Learn More ↓</button>
+
+            <button onclick="openApplyModal('DevOps Engineer')" class="bg-white hover:bg-accent text-black hover:text-white text-xs font-bold py-3 px-6 rounded transition-all duration-300 ">Apply now →</button>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- BENEFITS -->
+
+  <section id="benefits" class="px-[5%] py-24 md:py-32 relative z-10 font-body">
+
+    <div class="max-w-[1400px] mx-auto">
+
+      <div class="section-header reveal mb-16 text-left">
+
+        <div class="eyebrow text-xs font-extrabold tracking-[0.25em] text-accent uppercase mb-4 block">Why Join Us</div>
+
+        <div class="sep-line w-[60px] h-[2px] bg-accent mb-6"></div>
+
+        <h2 class="section-title font-hero text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-tight text-white mb-6">Benefits & Perks</h2>
+
+      </div>
+
+
+
+      <div class="benefits-grid reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- 1 -->
+
+        <div class="benefit-item bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] transition-all duration-400">
+
+          <div class="benefit-icon w-12 h-12 flex items-center justify-center text-lyzr-teal mb-6 bg-white/5 rounded-xl border border-white/10">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+
+          </div>
+
+          <h3 class="font-hero text-lg sm:text-xl font-bold text-white mb-4">Competitive Salary</h3>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Market-leading compensation with equity packages and regular performance reviews.</p>
+
+        </div>
+
+
+
+        <!-- 2 -->
+
+        <div class="benefit-item bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] transition-all duration-400">
+
+          <div class="benefit-icon w-12 h-12 flex items-center justify-center text-lyzr-teal mb-6 bg-white/5 rounded-xl border border-white/10">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+
+          </div>
+
+          <h3 class="font-hero text-lg sm:text-xl font-bold text-white mb-4">Remote Work</h3>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Work from anywhere with flexible hours built for asynchronous efficiency.</p>
+
+        </div>
+
+
+
+        <!-- 3 -->
+
+        <div class="benefit-item bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] transition-all duration-400">
+
+          <div class="benefit-icon w-12 h-12 flex items-center justify-center text-lyzr-teal mb-6 bg-white/5 rounded-xl border border-white/10">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+
+          </div>
+
+          <h3 class="font-hero text-lg sm:text-xl font-bold text-white mb-4">Growth Opportunities</h3>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Direct funding for books, certificates, software licenses, and online courses.</p>
+
+        </div>
+
+
+
+        <!-- 4 -->
+
+        <div class="benefit-item bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] transition-all duration-400">
+
+          <div class="benefit-icon w-12 h-12 flex items-center justify-center text-lyzr-teal mb-6 bg-white/5 rounded-xl border border-white/10">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+
+          </div>
+
+          <h3 class="font-hero text-lg sm:text-xl font-bold text-white mb-4">Health Insurance</h3>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Comprehensive health coverage for you and your dependents with mental wellness support.</p>
+
+        </div>
+
+
+
+        <!-- 5 -->
+
+        <div class="benefit-item bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] transition-all duration-400">
+
+          <div class="benefit-icon w-12 h-12 flex items-center justify-center text-lyzr-teal mb-6 bg-white/5 rounded-xl border border-white/10">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+
+          </div>
+
+          <h3 class="font-hero text-lg sm:text-xl font-bold text-white mb-4">Flexible PTO</h3>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Unlimited paid time off policy. We respect resting periods and deep refresh cycles.</p>
+
+        </div>
+
+
+
+        <!-- 6 -->
+
+        <div class="benefit-item bg-white/[0.02] border border-white/10 p-8 sm:p-10 rounded-2xl hover:border-accent hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(0,0,0,0.3)] transition-all duration-400">
+
+          <div class="benefit-icon w-12 h-12 flex items-center justify-center text-lyzr-teal mb-6 bg-white/5 rounded-xl border border-white/10">
+
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+
+          </div>
+
+          <h3 class="font-hero text-lg sm:text-xl font-bold text-white mb-4">Equipment Budget</h3>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed font-normal">Top-of-the-line MacBook Pro, test devices, and ergonomic workspace budgets.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  {% include "partials/footer.html" %}
+  {% include "partials/global_modal.html" %}
+  {% include "partials/script_loader.html" %}
+
+  <!-- Interaction Scripts -->
+
+  <script>
+
+    // ── ACCORDION EXPANDER
+
+    function toggleDetails(slug) {
+
+      const panel = document.getElementById(`details-${slug}`);
+
+      const btn = document.getElementById(`btn-toggle-${slug}`);
+
+      const isExpanded = !panel.classList.contains('hidden');
+
+
+
+      if (isExpanded) {
+
+        // Collapse
+
+        gsap.to(panel, { 
+
+          height: 0, 
+
+          duration: 0.3, 
+
+          ease: "power2.inOut",
+
+          onComplete: () => {
+
+            panel.classList.add('hidden');
+
+            panel.style.height = '';
+
+          }
+
+        });
+
+        btn.textContent = "Learn More ↓";
+
+      } else {
+
+        // Expand
+
+        panel.classList.remove('hidden');
+
+        const height = panel.scrollHeight;
+
+        gsap.fromTo(panel, { height: 0 }, { height: height, duration: 0.4, ease: "power2.out" });
+
+        btn.textContent = "Hide Details ↑";
+
+      }
+
+    }
+
+
+
+    // ── APPLICATION MODAL
+
+    function openApplyModal(jobTitle) {
+
+      const html = `
+
+        <h2 class="font-hero text-3xl font-bold text-white tracking-tight mb-4">Apply for ${jobTitle}</h2>
+
+        <p class="text-muted text-sm mb-6 leading-relaxed">Join Niyatrix Nexora and help us build the future of software. Please fill in your details below.</p>
+
+        <form id="job-apply-form" onsubmit="handleApplySubmit(event, '${jobTitle}')" class="flex flex-col gap-5">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-muted2 mb-2">Full Name</label>
+
+              <input type="text" name="from_name" required class="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 rounded font-ui text-xs transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none placeholder-white/30 " placeholder="Jane Doe" />
+
+            </div>
+
+            <div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-muted2 mb-2">Email Address</label>
+
+              <input type="email" name="reply_to" required class="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 rounded font-ui text-xs transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none placeholder-white/30 " placeholder="jane@example.com" />
+
+            </div>
+
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            <div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-muted2 mb-2">Portfolio / GitHub Link</label>
+
+              <input type="url" name="portfolio" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 rounded font-ui text-xs transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none placeholder-white/30 " placeholder="https://github.com/..." />
+
+            </div>
+
+            <div>
+
+              <label class="block text-[10px] font-bold uppercase tracking-wider text-muted2 mb-2">Resume Upload (Mock PDF/Doc)</label>
+
+              <input type="file" name="resume" required class="w-full bg-white/5 border border-white/10 text-white px-4 py-2.5 rounded font-ui text-xs transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none placeholder-white/30 " />
+
+            </div>
+
+          </div>
+
+          <div>
+
+            <label class="block text-[10px] font-bold uppercase tracking-wider text-muted2 mb-2">Cover Letter / Note</label>
+
+            <textarea name="message" rows="4" class="w-full bg-white/5 border border-white/10 text-white px-4 py-3.5 rounded font-ui text-xs transition-all duration-300 focus:border-accent focus:bg-white/[0.07] focus:outline-none placeholder-white/30 " placeholder="Tell us about yourself..."></textarea>
+
+          </div>
+
+          <button type="submit" class="bg-white text-black font-button text-xs font-extrabold tracking-widest uppercase py-4 rounded hover:bg-accent hover:text-white transition-all duration-300  mt-2 w-full" id="submit-application-btn">Submit Application</button>
+
+        </form>
+
+      `;
+
+      openModal(html);
+
+    }
+
+
+
+    function handleApplySubmit(e, jobTitle) {
+
+      e.preventDefault();
+
+      const btn = document.getElementById('submit-application-btn');
+
+      const form = document.getElementById('job-apply-form');
+
+      const fromName = form.querySelector('[name="from_name"]').value.trim();
+      const replyTo = form.querySelector('[name="reply_to"]').value.trim();
+      const portfolio = form.querySelector('[name="portfolio"]').value.trim();
+      const fileInput = form.querySelector('[name="resume"]');
+      const resumeFile = fileInput.files && fileInput.files[0] ? fileInput.files[0].name : "None";
+      const note = form.querySelector('[name="message"]').value.trim();
+
+      const data = new FormData();
+      data.append('from_name', fromName);
+      data.append('reply_to', replyTo);
+      data.append('portfolio', portfolio);
+      data.append('resume_url', resumeFile);
+      data.append('cover_letter', note);
+      data.append('job_title', jobTitle);
+
+
+
+      btn.textContent = 'Submitting...';
+
+      btn.disabled = true;
+
+
+
+      fetch('/apply/', {
+
+        method: 'POST',
+
+        headers: { 'X-CSRFToken': getCookie('csrftoken') },
+
+        body: data
+
+      })
+
+        .then(res => {
+
+          if (res.ok) {
+
+            form.innerHTML = `
+
+              <div class="text-center py-10 flex flex-col items-center gap-4 animate-[fadeIn_0.5s_ease]">
+
+                <div class="w-16 h-16 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center">
+
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+
+                </div>
+
+                <h3 class="font-hero text-2xl font-bold text-white">Application Received!</h3>
+
+                <p class="text-muted text-sm max-w-sm mx-auto leading-relaxed">Thank you for applying to the <strong>${jobTitle}</strong> position. Our recruiting team will review your application and get back to you shortly.</p>
+
+                <button onclick="closeModal()" class="mt-6 bg-white/5 border border-white/10 hover:border-accent text-white px-8 py-3 rounded text-xs font-bold uppercase tracking-wider ">Close Window</button>
+
+              </div>
+
+            `;
+
+          } else {
+
+            throw new Error('Server error ' + res.status);
+
+          }
+
+        })
+
+        .catch(() => {
+
+          btn.textContent = '✗ Submission failed — please email us directly';
+
+          btn.style.background = '#dc2626';
+
+          btn.style.color = '#ffffff';
+
+          btn.disabled = false;
+
+        });
+
+    }
+
+
+
+    function getCookie(name) {
+
+      const v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+
+      return v ? v[2] : '';
+
+    }
+
+
+
+
+  </script>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+

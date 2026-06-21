@@ -1,0 +1,11 @@
+<div id="global-modal" class="fixed inset-0 z-[2000] hidden items-center justify-center p-4 sm:p-6 md:p-10 backdrop-blur-2xl transition-all duration-300 overflow-y-auto" style="background:rgba(1,3,10,0.45);">
+  <div id="modal-inner" class="relative w-full max-w-3xl my-8">
+    <canvas id="modal-aurora-canvas"></canvas>
+    <div id="modal-stars-layer" style="position:absolute;inset:0;border-radius:20px;pointer-events:none;z-index:1;overflow:hidden;"></div>
+    <div id="modal-topline"></div>
+    <button id="modal-close-btn" onclick="closeModal()" class="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-muted hover:text-white hover:bg-accent hover:border-accent hover:scale-105 transition-all duration-300">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="modal-content" class="text-left font-body max-h-[80vh] overflow-y-auto p-7 sm:p-10"></div>
+  </div>
+</div>

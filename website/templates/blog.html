@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+
+
+<html lang="en" class="scroll-smooth">
+
+
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Blogs NIYATRIX NEXORA</title>
+
+
+
+  <!-- SEO & Social -->
+
+  <meta name="description"
+    content="Insights, engineering deep-dives, and AI guides from the NIYATRIX NEXORA team of engineers, designers, and systems architects.">
+
+  <meta property="og:title" content="Blog — NIYATRIX NEXORA">
+
+  <meta property="og:description"
+    content="Insights, engineering deep-dives, and AI guides from the NIYATRIX NEXORA team of engineers, designers, and systems architects.">
+
+<meta property="og:url" content="https://niyatrixnexora.com/blog/">
+   <meta property="og:type" content="website">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="Blog » NIYATRIX NEXORA">
+   <meta name="twitter:description"
+     content="Insights, engineering deep-dives, and AI guides from the NIYATRIX NEXORA team of engineers, designers, and systems architects.">
+
+  <link rel="canonical" href="https://niyatrixnexora.com/blog/">
+
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+
+
+
+  <!-- Font Imports -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900&f[]=satoshi@1,2&f[]=clash-display@1,2&f[]=cabinet-grotesk@1,2&f[]=general-sans@1,2&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/tailwind.css' %}?v=20260616-1" id="tailwind-stylesheet" />
+<link rel="stylesheet" href="{% static 'css/styles.css' %}?v=20260522-1" id="main-stylesheet" />
+
+  <script>
+
+    if (window.location.protocol === 'file:' || window.location.pathname.indexOf('/website/templates/') !== -1) {
+
+      document.getElementById('main-stylesheet').setAttribute('href', '../static/css/styles.css?v=20260606-2');
+      document.getElementById('tailwind-stylesheet').setAttribute('href', '../static/css/tailwind.css?v=20260616-1');
+
+    }
+
+  </script>
+
+</head>
+
+
+
+<body class="bg-bg text-white font-body overflow-x-hidden min-h-screen ">
+
+
+
+  <canvas id="bg"></canvas>
+
+  <canvas id="aura-canvas"></canvas>
+
+
+
+  <!-- NAV -->
+
+  <nav
+    class="w-[92%] max-w-[1320px] z-[1000] px-5 py-3 md:px-8 md:py-3.5 flex justify-between items-center bg-[#03050c]/60 backdrop-blur-xl border border-white/10 rounded-xl">
+
+
+
+    <!-- Logo -->
+
+    <a href="{% url 'home' %}"
+      class="logo font-logo font-bold text-base md:text-lg tracking-tight text-white flex items-center gap-2 shrink-0 relative z-[1001] drop-shadow-[0_0_20px_rgba(91,110,245,0.3)]">
+
+      NIYATRIX <span class="text-accent2 font-bold">NEXORA</span>
+
+      <span
+        class="logo-dot w-2 h-2 rounded-full bg-accent shadow-[0_0_20px_#5b6ef5] animate-[pulseDot_2.4s_ease_infinite]"></span>
+
+    </a>
+
+
+
+    <!-- Desktop links -->
+
+    <ul class="nav-desktop hidden md:flex items-center gap-5 lg:gap-8 list-none">
+
+      <li><a href="{% url 'home' %}#services"
+          class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Services</a>
+      </li>
+
+      <li><a href="{% url 'home' %}#case-studies"
+          class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Case
+          Studies</a></li>
+
+      <li><a href="{% url 'home' %}#about"
+          class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">About</a>
+      </li>
+
+      <li><a href="{% url 'blog' %}"
+          class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-white uppercase transition-colors duration-300 whitespace-nowrap">Blog</a>
+      </li>
+
+      <li><a href="{% url 'careers' %}"
+          class="font-navbar text-[10px] lg:text-xs font-semibold tracking-[0.16em] text-muted hover:text-white uppercase transition-colors duration-300 whitespace-nowrap">Careers</a>
+      </li>
+
+    </ul>
+
+
+
+    <!-- Desktop CTA -->
+
+    <a href="{% url 'home' %}#contact"
+      class="nav-cta hidden md:inline-flex items-center shrink-0 bg-white text-black px-5 py-2 rounded font-button text-[10px] lg:text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(91,110,245,0.35)] whitespace-nowrap">Work
+      with Us</a>
+
+
+
+    <!-- Mobile hamburger -->
+
+    <button
+      class="menu-btn flex md:hidden flex-col gap-[5px] cursor-pointer p-2 z-[1002] shrink-0 bg-transparent border-0"
+      onclick="toggleMenu()" aria-label="Toggle menu">
+
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300"></span>
+
+      <span class="block w-5 h-[2px] bg-white transition-all duration-300 origin-center"></span>
+
+    </button>
+
+
+
+    <!-- Mobile dropdown -->
+
+    <ul
+      class="nav-mobile md:hidden absolute top-full left-0 right-0 mt-3 flex-col items-center gap-5 list-none bg-[#03050c]/97 backdrop-blur-2xl border border-white/10 rounded-xl px-6 py-8 z-[999]">
+
+      <li><a href="{% url 'home' %}#services"
+          class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300"
+          onclick="closeMenu()">Services</a></li>
+
+      <li><a href="{% url 'home' %}#case-studies"
+          class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300"
+          onclick="closeMenu()">Case Studies</a></li>
+
+      <li><a href="{% url 'home' %}#about"
+          class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300"
+          onclick="closeMenu()">About</a></li>
+
+      <li><a href="{% url 'blog' %}"
+          class="font-navbar text-xs font-semibold tracking-widest text-white uppercase transition-colors duration-300"
+          onclick="closeMenu()">Blog</a></li>
+
+      <li><a href="{% url 'careers' %}"
+          class="font-navbar text-xs font-semibold tracking-widest text-muted hover:text-white uppercase transition-colors duration-300"
+          onclick="closeMenu()">Careers</a></li>
+
+      <li class="w-full text-center pt-2 border-t border-white/10">
+
+        <a href="{% url 'home' %}#contact"
+          class="inline-block bg-white text-black px-8 py-3 rounded font-button text-xs font-bold tracking-wider hover:bg-accent hover:text-white uppercase transition-all duration-300 mt-2"
+          onclick="closeMenu()">Work with Us</a>
+
+      </li>
+
+    </ul>
+
+  </nav>
+
+
+
+  <!-- HERO -->
+
+  <section id="hero"
+    class="min-h-[50vh] flex flex-col items-center justify-center text-center px-4 py-24 relative overflow-x-hidden">
+
+    <div
+      class="hero-eyebrow inline-flex items-center gap-3 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full text-[10px] md:text-xs font-bold tracking-widest text-muted uppercase mb-10 font-ui backdrop-blur-md">
+
+      <span class="hero-eyebrow-dot w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_#5b6ef5]"></span>
+
+      Insights & Updates
+
+    </div>
+
+
+
+    <h1
+      class="font-hero text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold leading-[0.95] tracking-tight mb-8 text-white filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+
+      Our thoughts on<br />
+
+      <span
+        class="h1-line2 block bg-[linear-gradient(90deg,#fff,#9b87f5,#c084fc,#fff)] bg-[length:200%_auto] bg-clip-text text-transparent animate-[gradientFlow_5s_linear_infinite] tracking-tighter pb-2">AI
+        & technology.</span>
+
+    </h1>
+
+
+
+    <p
+      class="hero-desc text-muted text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-12 sm:mb-16 font-normal tracking-tight">
+
+      Explore the latest trends, deep-dives, and guides from our team of engineers, designers, and systems architects.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- BLOG INDEX -->
+
+  <section id="blog-grid" class="px-[5%] py-12 md:py-20 relative z-10">
+
+    <div class="max-w-[1400px] mx-auto">
+
+
+
+      <!-- Category Filter Tabs -->
+
+      <div class="flex flex-wrap justify-start gap-3 mb-16 border-b border-white/10 pb-8">
+
+        <button onclick="filterCategory('all')" id="tab-all"
+          class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-black hover:scale-105 ">All
+          Articles</button>
+
+        <button onclick="filterCategory('ai')" id="tab-ai"
+          class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white/5 border border-white/10 text-muted hover:text-white hover:bg-white/10 ">AI
+          Development</button>
+
+        <button onclick="filterCategory('engineering')" id="tab-engineering"
+          class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white/5 border border-white/10 text-muted hover:text-white hover:bg-white/10 ">Engineering</button>
+
+        <button onclick="filterCategory('product')" id="tab-product"
+          class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white/5 border border-white/10 text-muted hover:text-white hover:bg-white/10 ">Product</button>
+
+        <button onclick="filterCategory('culture')" id="tab-culture"
+          class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white/5 border border-white/10 text-muted hover:text-white hover:bg-white/10 ">Culture</button>
+
+        <button onclick="filterCategory('news')" id="tab-news"
+          class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white/5 border border-white/10 text-muted hover:text-white hover:bg-white/10 ">Company
+          News</button>
+
+      </div>
+
+
+
+      <!-- Articles Grid -->
+
+      <div class="blog-posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+
+        <!-- Post 1 (AI) -->
+
+        <article data-category="ai"
+          class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between cursor-pointer"
+          onclick="openInsight('rag')">
+
+          <div>
+
+            <div
+              class="blog-image h-48 sm:h-52 bg-gradient-to-br from-accent to-accent2 flex items-center justify-center relative">
+
+              <div class="absolute inset-0 bg-[#080a14]/40 mix-blend-overlay"></div>
+
+              <div class="blog-placeholder font-hero text-5xl font-extrabold text-white/20 select-none">RAG</div>
+
+            </div>
+
+            <div class="blog-content p-6 sm:p-8">
+
+              <div class="blog-meta flex justify-between items-center mb-4 text-xs">
+
+                <span class="blog-category text-accent font-bold tracking-wider uppercase">AI Development</span>
+
+                <span class="blog-date text-muted2 font-medium">May 12, 2026</span>
+
+              </div>
+
+              <h3 class="blog-title font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">The Anatomy of
+                a Production-Grade RAG Pipeline</h3>
+
+              <p class="blog-excerpt text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Why naive vector
+                search fails in production, and how hybrid search, rerankers, and metadata filtering solve it.</p>
+
+            </div>
+
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex justify-between items-center border-t border-white/5 mt-auto">
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold text-white border border-accent/20">
+                AR</div>
+
+              <span class="text-xs text-muted font-medium">Arjun Rao · 7m read</span>
+
+            </div>
+
+            <span class="text-accent hover:text-accent2 text-sm font-bold transition-all duration-300">Read more</span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Post 2 (Engineering) -->
+
+        <article data-category="engineering"
+          class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between cursor-pointer"
+          onclick="openInsight('kube-scale')">
+
+          <div>
+
+            <div
+              class="blog-image h-48 sm:h-52 bg-gradient-to-br from-accent2 to-accent3 flex items-center justify-center relative">
+
+              <div class="absolute inset-0 bg-[#080a14]/40 mix-blend-overlay"></div>
+
+              <div class="blog-placeholder font-hero text-5xl font-extrabold text-white/20 select-none">EKS</div>
+
+            </div>
+
+            <div class="blog-content p-6 sm:p-8">
+
+              <div class="blog-meta flex justify-between items-center mb-4 text-xs">
+
+                <span class="blog-category text-accent font-bold tracking-wider uppercase">Cloud & DevOps</span>
+
+                <span class="blog-date text-muted2 font-medium">Mar 15, 2026</span>
+
+              </div>
+
+              <h3 class="blog-title font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">Scaling
+                Kubernetes to Zero (And Back)</h3>
+
+              <p class="blog-excerpt text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">How we configured
+                Knative and Karpenter on AWS EKS to shut down inactive environments and cut sandbox spend by 42%.</p>
+
+            </div>
+
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex justify-between items-center border-t border-white/5 mt-auto">
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold text-white border border-accent/20">
+                MK</div>
+
+              <span class="text-xs text-muted font-medium">Mohammed Khan · 9m read</span>
+
+            </div>
+
+            <span class="text-accent hover:text-accent2 text-sm font-bold transition-all duration-300">Read more</span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Post 3 (Engineering / Frontend) -->
+
+        <article data-category="engineering"
+          class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between cursor-pointer"
+          onclick="openInsight('cinematic-ui')">
+
+          <div>
+
+            <div
+              class="blog-image h-48 sm:h-52 bg-gradient-to-br from-accent to-accent3 flex items-center justify-center relative">
+
+              <div class="absolute inset-0 bg-[#080a14]/40 mix-blend-overlay"></div>
+
+              <div class="blog-placeholder font-hero text-5xl font-extrabold text-white/20 select-none">3D</div>
+
+            </div>
+
+            <div class="blog-content p-6 sm:p-8">
+
+              <div class="blog-meta flex justify-between items-center mb-4 text-xs">
+
+                <span class="blog-category text-accent font-bold tracking-wider uppercase">Frontend / UX</span>
+
+                <span class="blog-date text-muted2 font-medium">Apr 28, 2026</span>
+
+              </div>
+
+              <h3 class="blog-title font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">Next.js &
+                Three.js for Cinematic Web UI</h3>
+
+              <p class="blog-excerpt text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Creating
+                performant, visually stunning 3D landing experiences without compromising SEO or Core Web Vitals.</p>
+
+            </div>
+
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex justify-between items-center border-t border-white/5 mt-auto">
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold text-white border border-accent/20">
+                SN</div>
+
+              <span class="text-xs text-muted font-medium">Shreya Nair · 5m read</span>
+
+            </div>
+
+            <span class="text-accent hover:text-accent2 text-sm font-bold transition-all duration-300">Read more</span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Post 4 (Product) -->
+
+        <article data-category="product"
+          class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between cursor-pointer"
+          onclick="openInsight('design-systems')">
+
+          <div>
+
+            <div
+              class="blog-image h-48 sm:h-52 bg-gradient-to-br from-accent3 to-accent flex items-center justify-center relative">
+
+              <div class="absolute inset-0 bg-[#080a14]/40 mix-blend-overlay"></div>
+
+              <div class="blog-placeholder font-hero text-5xl font-extrabold text-white/20 select-none">TOKENS</div>
+
+            </div>
+
+            <div class="blog-content p-6 sm:p-8">
+
+              <div class="blog-meta flex justify-between items-center mb-4 text-xs">
+
+                <span class="blog-category text-accent font-bold tracking-wider uppercase">Product Design</span>
+
+                <span class="blog-date text-muted2 font-medium">Jan 5, 2025</span>
+
+              </div>
+
+              <h3 class="blog-title font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">Design Systems
+                That Scale</h3>
+
+              <p class="blog-excerpt text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">How to structure
+                tokens and component packages in Figma and Tailwind to speed up engineering handoffs.</p>
+
+            </div>
+
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex justify-between items-center border-t border-white/5 mt-auto">
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold text-white border border-accent/20">
+                SN</div>
+
+              <span class="text-xs text-muted font-medium">Shreya Nair · 6m read</span>
+
+            </div>
+
+            <span class="text-accent hover:text-accent2 text-sm font-bold transition-all duration-300">Read more</span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Post 5 (Culture) -->
+
+        <article data-category="culture"
+          class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between cursor-pointer"
+          onclick="openInsight('remote-culture')">
+
+          <div>
+
+            <div
+              class="blog-image h-48 sm:h-52 bg-gradient-to-br from-accent2 to-accent flex items-center justify-center relative">
+
+              <div class="absolute inset-0 bg-[#080a14]/40 mix-blend-overlay"></div>
+
+              <div class="blog-placeholder font-hero text-5xl font-extrabold text-white/20 select-none">CULTURE</div>
+
+            </div>
+
+            <div class="blog-content p-6 sm:p-8">
+
+              <div class="blog-meta flex justify-between items-center mb-4 text-xs">
+
+                <span class="blog-category text-accent font-bold tracking-wider uppercase">Team Culture</span>
+
+                <span class="blog-date text-muted2 font-medium">Dec 18, 2025</span>
+
+              </div>
+
+              <h3 class="blog-title font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">Building a
+                Remote-First Engineering Team</h3>
+
+              <p class="blog-excerpt text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Lessons learned
+                hiring talent globally while establishing a high-performance culture in our Indian hubs.</p>
+
+            </div>
+
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex justify-between items-center border-t border-white/5 mt-auto">
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold text-white border border-accent/20">
+                AR</div>
+
+              <span class="text-xs text-muted font-medium">Arjun Rao · 4m read</span>
+
+            </div>
+
+            <span class="text-accent hover:text-accent2 text-sm font-bold transition-all duration-300">Read more</span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Post 6 (News) -->
+
+        <article data-category="news"
+          class="blog-card bg-white/[0.02] border border-white/10 rounded-2xl overflow-hidden hover:border-accent hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] transition-all duration-400 flex flex-col justify-between cursor-pointer"
+          onclick="openInsight('partnership-news')">
+
+          <div>
+
+            <div
+              class="blog-image h-48 sm:h-52 bg-gradient-to-br from-accent to-accent2 flex items-center justify-center relative">
+
+              <div class="absolute inset-0 bg-[#080a14]/40 mix-blend-overlay"></div>
+
+              <div class="blog-placeholder font-hero text-5xl font-extrabold text-white/20 select-none">NEWS</div>
+
+            </div>
+
+            <div class="blog-content p-6 sm:p-8">
+
+              <div class="blog-meta flex justify-between items-center mb-4 text-xs">
+
+                <span class="blog-category text-accent font-bold tracking-wider uppercase">Company News</span>
+
+                <span class="blog-date text-muted2 font-medium">Feb 10, 2026</span>
+
+              </div>
+
+              <h3 class="blog-title font-hero text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">Partnership
+                for Enterprise AI Integration</h3>
+
+              <p class="blog-excerpt text-muted text-sm sm:text-base leading-relaxed mb-6 font-normal">Expanding our
+                delivery capacity with a strategic joint venture targeting automated workflows in banking.</p>
+
+            </div>
+
+          </div>
+
+          <div class="p-6 sm:p-8 pt-0 flex justify-between items-center border-t border-white/5 mt-auto">
+
+            <div class="flex items-center gap-3">
+
+              <div
+                class="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-xs font-bold text-white border border-accent/20">
+                MK</div>
+
+              <span class="text-xs text-muted font-medium">Mohammed Khan · 3m read</span>
+
+            </div>
+
+            <span class="text-accent hover:text-accent2 text-sm font-bold transition-all duration-300">Read more</span>
+
+          </div>
+
+        </article>
+
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  {% include "partials/footer.html" %}
+  {% include "partials/global_modal.html" %}
+  {% include "partials/script_loader.html" %}
+
+  <!-- Interaction Scripts -->
+
+  <script>
+
+    // â”€â”€ CATEGORY FILTERING
+
+    function filterCategory(category) {
+
+      const cards = document.querySelectorAll('.blog-card');
+
+      const tabs = document.querySelectorAll('[id^="tab-"]');
+
+
+
+      tabs.forEach(tab => {
+
+        if (tab.id === `tab-${category}`) {
+
+          tab.className = "px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white text-black hover:scale-105 ";
+
+        } else {
+
+          tab.className = "px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-white/5 border border-white/10 text-muted hover:text-white hover:bg-white/10 ";
+
+        }
+
+      });
+
+
+
+      cards.forEach(card => {
+
+        const cardCategory = card.getAttribute('data-category');
+
+        if (category === 'all' || cardCategory === category) {
+
+          card.style.display = 'flex';
+
+          // Smooth fade-in feel
+
+          gsap.fromTo(card, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 });
+
+        } else {
+
+          card.style.display = 'none';
+
+        }
+
+      });
+
+    }
+
+
+
+    // â”€â”€ DYNAMIC ARTICLES DATA
+
+    const insightsData = {
+
+      rag: {
+
+        title: "The Anatomy of a Production-Grade RAG Pipeline",
+
+        category: "AI Development",
+
+        date: "May 12, 2026",
+
+        readTime: "7 min read",
+
+        author: "Arjun Rao",
+
+        authorRole: "CTO, Niyatrix Nexora",
+
+        content: `
+
+          <p class="mb-6 leading-relaxed">Many organizations begin their AI journey by building a simple prototype using LangChain, loading documents into vector storage, and running basic similarity queries. However, moving this setup to a production level reveals massive gaps: hallucination, search retrieval leakage, and slow latencies.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Dense vs. Sparse Hybrid Search</h4>
+
+          <p class="mb-6 leading-relaxed">A production-grade pipeline must not rely solely on dense embeddings (like OpenAI text-embedding-3). We utilize a hybrid model that merges vector embeddings with BM25 keyword matching scores. This ensures that specific IDs, dates, or serial codes (which dense vectors often dilute) are accurately retrieved.</p>
+
+
+
+          <h4 class="text-white font-bold text-lg mb-4">2. The Metadata Layer & Reciprocal Rank Fusion (RRF)</h4>
+
+          <p class="mb-6 leading-relaxed">Rather than feeding arbitrary chunks directly, documents must be parsed and tagged with metadata. Using Reciprocal Rank Fusion, we prioritize matching chunks that correlate with structured data schemas (e.g. document type, section titles, revision date).</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4">3. Agentic Rerankers</h4>
+
+          <p class="mb-6 leading-relaxed">Before sending context to the generator model, we pass candidate chunks through a cross-encoder model (Cohere Rerank or fine-tuned local models). This filters out irrelevant chunks, keeping token counts down and response speeds fast.</p>
+
+        `
+
+      },
+
+      'kube-scale': {
+
+        title: "Scaling Kubernetes to Zero (And Back) for Development",
+
+        category: "Cloud & DevOps",
+
+        date: "Mar 15, 2026",
+
+        readTime: "9 min read",
+
+        author: "Mohammed Khan",
+
+        authorRole: "DevOps Architect, Niyatrix Nexora",
+
+        content: `
+
+          <p class="mb-6 leading-relaxed">Maintaining sandbox environments for a scaling development team is a massive driver of cloud resource leaks. Leaving dev clusters running 24/7 on AWS EKS is expensive. Here is how we automated our cloud infrastructure costs downward by 42%.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Serverless Container Provisioning via Knative</h4>
+
+          <p class="mb-6 leading-relaxed">By integrating Knative Serving into our development clusters, pods auto-scale down to zero replica instances if there is no active traffic for 15 minutes. The cluster nodes themselves are scaled down automatically by Karpenter.</p>
+
+
+
+          <h4 class="text-white font-bold text-lg mb-4">2. The Cold-Start Obstacle</h4>
+
+          <p class="mb-6 leading-relaxed">Scaling up from zero pods introduces a 'cold-start' latency (usually 5 to 15 seconds). To maintain developer flow, we cache core container images locally across nodes using registry-mirrors and pre-pulling scripts, cutting starts to under 2.5 seconds.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4">3. GitOps Continuous Delivery</h4>
+
+          <p class="mb-6 leading-relaxed">Dev branches automatically spin up dynamic ingress paths when pushed, and are garbage-collected via ArgoCD sync configurations when branches are merged or deleted in GitHub.</p>
+
+        `
+
+      },
+
+      'cinematic-ui': {
+
+        title: "Why We Chose Next.js + Three.js for Cinematic UI",
+
+        category: "Frontend / UX",
+
+        date: "Apr 28, 2026",
+
+        readTime: "5 min read",
+
+        author: "Shreya Nair",
+
+        authorRole: "Design Director, Niyatrix Nexora",
+
+        content: `
+
+          <p class="mb-6 leading-relaxed">As an AI startup engineering partner, our site must establish visual authority. We chose to combine Next.js, WebGL via Three.js, and GSAP for a unified cinematic experience that is both visual and highly optimized.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Overcoming the WebGL Overhead</h4>
+
+          <p class="mb-6 leading-relaxed">Cinematic sites often run slow on mid-tier mobile devices. To combat this, we decouple our WebGL loops. The canvas elements are paused dynamically when scrolled out of view using standard IntersectionObservers. This drops CPU usage to zero on inactive page sections.</p>
+
+
+
+          <h4 class="text-white font-bold text-lg mb-4">2. Seamless Routing and Shared Asset Management</h4>
+
+          <p class="mb-6 leading-relaxed">Using Next.js routing, we avoid page reloads which would reset the WebGL rendering context. WebGL assets are cached in memory globally, allowing transitions between route pages to feel instantaneous.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4">3. SEO & Core Web Vitals Compatibility</h4>
+
+          <p class="mb-6 leading-relaxed">We keep all text assets strictly inside semantic HTML. Shaders only run in the background, keeping our DOM tree light and preserving full accessibility (WCAG AA compliance) and Google crawler readability.</p>
+
+        `
+
+      },
+
+      'design-systems': {
+
+        title: "Design Systems That Scale: Bridging the Gap from Figma to Production",
+
+        category: "Product Design",
+
+        date: "Jan 5, 2025",
+
+        readTime: "6 min read",
+
+        author: "Shreya Nair",
+
+        authorRole: "Design Director, Niyatrix Nexora",
+
+        content: `
+
+          <p class="mb-6 leading-relaxed">A growing enterprise product portfolio quickly fragments without a unified visual grammar. We construct multi-platform design systems centered around structured design token schemas.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Decoupled Token Architecture</h4>
+
+          <p class="mb-6 leading-relaxed">Instead of hardcoding styling properties, we compile design tokens into platform-specific configurations (Tailwind variables, CSS custom properties, and Android resource XMLs) using Amazon Style Dictionary. This maintains visual synchronization across web and native mobile apps.</p>
+
+
+
+          <h4 class="text-white font-bold text-lg mb-4">2. Component-Driven Isolation</h4>
+
+          <p class="mb-6 leading-relaxed">By designing and testing buttons, inputs, alerts, and navigation modules in isolation via Storybook, we ensure components are robust under edge-case states before deployment to client-facing workspaces.</p>
+
+        `
+
+      },
+
+      'remote-culture': {
+
+        title: "Building a Remote-First Engineering Team: Nellore to the World",
+
+        category: "Team Culture",
+
+        date: "Dec 18, 2025",
+
+        readTime: "4 min read",
+
+        author: "Arjun Rao",
+
+        authorRole: "CTO, Niyatrix Nexora",
+
+        content: `
+
+          <p class="mb-6 leading-relaxed">Talent is distributed globally, but opportunities are often concentrated. By establishing remote-first systems in our Nellore hubs, we build software for international enterprises without regional constraints.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Asynchronous Communication Loops</h4>
+
+          <p class="mb-6 leading-relaxed">We rely heavily on structured written specifications and recorded demonstration walkthroughs rather than continuous real-time video standups. This respects deep focus blocks, letting developers engineer without meeting exhaustion.</p>
+
+
+
+          <h4 class="text-white font-bold text-lg mb-4">2. Hybrid Regional Meetups</h4>
+
+          <p class="mb-6 leading-relaxed">While we work remote, regional hubs gather regularly for collaborative hackathons and reviews, merging the freedom of remote work with the trust of face-to-face team bonds.</p>
+
+        `
+
+      },
+
+      'partnership-news': {
+
+        title: "Niyatrix Nexora Partners with Global Tech Lead for Enterprise AI Delivery",
+
+        category: "Company News",
+
+        date: "Feb 10, 2026",
+
+        readTime: "3 min read",
+
+        author: "Mohammed Khan",
+
+        authorRole: "Product Lead, Niyatrix Nexora",
+
+        content: `
+
+          <p class="mb-6 leading-relaxed">We are excited to announce a new joint venture with global integration leaders to accelerate the deployment of agentic workflows inside legacy enterprise environments.</p>
+
+          
+
+          <h4 class="text-white font-bold text-lg mb-4 mt-8">1. Enterprise Delivery Specialization</h4>
+
+          <p class="mb-6 leading-relaxed">This partnership validates our unique approach to engineering AI solutions. We combine advanced multi-agent systems with rigorous compliance standards, unlocking automation inside tightly regulated domains like fintech, banking, and insurance.</p>
+
+        `
+
+      }
+
+    };
+
+
+
+    function openInsight(slug) {
+
+      const data = insightsData[slug];
+
+      if (!data) return;
+
+
+
+      let html = `
+
+        <div class="flex flex-col gap-6">
+
+          <div>
+
+            <div class="flex justify-between items-center mb-4 text-xs font-semibold">
+
+              <span class="text-accent uppercase tracking-wider">${data.category}</span>
+
+              <span class="text-muted2">${data.date} · ${data.readTime}</span>
+
+            </div>
+
+            <h2 class="font-hero text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-6">${data.title}</h2>
+
+            
+
+            <div class="flex items-center gap-3.5 mb-8">
+
+              <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-accent2 to-accent3 flex items-center justify-center text-sm font-bold text-white shadow-md">
+
+                ${data.author.split(' ').map(n => n[0]).join('')}
+
+              </div>
+
+              <div>
+
+                <div class="font-bold text-white text-sm">${data.author}</div>
+
+                <div class="text-[10px] text-muted2 uppercase font-semibold">${data.authorRole}</div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="prose prose-invert text-muted text-sm sm:text-base leading-relaxed max-w-none pt-6 border-t border-white/5">
+
+            ${data.content}
+
+          </div>
+
+        </div>
+
+      `;
+
+      openModal(html);
+
+    }
+
+
+  </script>
+
+</body>
+
+
+
+</html>

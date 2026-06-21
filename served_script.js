@@ -146,6 +146,7 @@ function ensureCursorElement(id) {
     // ══════════════════════════════════════════════
     const bgC = document.getElementById('bg');
     if (window.THREE && bgC) {
+    const hero = document.getElementById('hero');
     const ren = new THREE.WebGLRenderer({ canvas: bgC, alpha: true, antialias: false, powerPreference: 'high-performance' });
     ren.setPixelRatio(Math.min(devicePixelRatio, NN_DPR_CAP));
     ren.setSize(innerWidth, innerHeight);

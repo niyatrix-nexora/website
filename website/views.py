@@ -5,6 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 import urllib.request
 import json
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 sheet_executor = ThreadPoolExecutor(max_workers=getattr(settings, "SHEET_WORKERS", 2))
@@ -48,7 +49,12 @@ def post_to_sheet(payload, url):
 
 
 def queue_sheet_submission(payload, url):
-    sheet_executor.submit(post_to_sheet, payload, url)
+    # In Vercel serverless environment, background threads get immediately frozen/killed
+    # when the HTTP response returns. We must execute the submit call synchronously.
+    if os.environ.get("VERCEL") == "1" or getattr(settings, 'SYNC_SHEET_SUBMISSION', False):
+        post_to_sheet(payload, url)
+    else:
+        sheet_executor.submit(post_to_sheet, payload, url)
 
 def contact(request):
     if request.method != 'POST':

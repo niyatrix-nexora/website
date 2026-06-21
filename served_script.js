@@ -12,7 +12,7 @@ function debounce(func, wait) {
 
 const NN_REDUCE_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const NN_COARSE_POINTER = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-const NN_LOW_POWER = NN_REDUCE_MOTION || NN_COARSE_POINTER || (navigator.deviceMemory && navigator.deviceMemory <= 4);
+const NN_LOW_POWER = NN_REDUCE_MOTION || (navigator.deviceMemory && navigator.deviceMemory <= 4);
 const NN_DPR_CAP = NN_LOW_POWER ? 1 : 1.4;
 const NN_HERO_TUBE_SEGMENTS = NN_LOW_POWER ? 220 : 420;
 const NN_HERO_RADIAL_SEGMENTS = NN_LOW_POWER ? 8 : 12;
@@ -49,7 +49,7 @@ function ensureCursorElement(id) {
     const dot = ensureCursorElement('dot');
     const trail = ensureCursorElement('trail');
 
-    if (!NN_LOW_POWER) {
+    if (!NN_LOW_POWER && !NN_COARSE_POINTER) {
       let mx = 0, my = 0, tx = 0, ty = 0;
       document.addEventListener('mousemove', e => {
         mx = e.clientX; my = e.clientY;
